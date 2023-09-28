@@ -1,0 +1,48 @@
+
+/* PaymentPolicies.css */
+*{
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+html,body{
+  width:100%;
+  height:100%;
+}
+.payment_upper_div{
+
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.payment-policies {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+    background-color: rgba(254, 254, 254, 0.948);
+    
+  }
+  
+  .payment-policies h2 {
+    text-align: center;
+  }
+  
+  .payment-policies h3 {
+    margin-top: 20px;
+    color: #0f176d;
+  }
+  
+  .payment-policies p {
+    margin-bottom: 20px;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .payment-policies strong {
+    color: #0f176d;
+  }
+  

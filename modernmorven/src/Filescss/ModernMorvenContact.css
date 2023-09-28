@@ -1,0 +1,75 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+ 
+
+}
+/* ModernMorvenContact.css */
+
+.modern_morven_contact {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #171717;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    padding:2vh;
+  }
+  
+  .heading {
+    color: #0f176d;
+  }
+  
+  .contact-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info,
+  .office-address,
+  .working-hours,
+  .support-ticket,
+  .social-media,
+  .feedback-suggestions,
+  .wholesale-inquiries {
+    margin-bottom: 20px;
+  }
+  
+  .contact-info h2,
+  .office-address h2,
+  .working-hours h2,
+  .support-ticket h2,
+  .social-media h2,
+  .feedback-suggestions h2,
+  .wholesale-inquiries h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    
+  }
+  
+  .contact-info p,
+  .office-address p,
+  .working-hours p,
+  .support-ticket p,
+  .social-media p,
+  .feedback-suggestions p,
+  .wholesale-inquiries p {
+    font-size: 1rem;
+    line-height: 1.9;
+    font-size: 1.3rem;
+    
+  }
+  
+  .contact-conclusion {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  

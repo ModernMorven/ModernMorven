@@ -1,0 +1,74 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+
+.AdsManagement_upper_main_container{
+    width:1530px;
+    height:max-content;
+   background-color:#FFFFFF;
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:15px;
+
+}
+.Adsimage_container{
+    width: 45%;
+    height: 300px;
+    position: relative;
+    border:1px solid #acacac;
+    border-style:groove;
+    margin: 2%;
+    display:flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: end;
+
+}
+
+.adsform{
+    width:100%;
+    height:100%;
+   display:flex;
+  
+   padding:0%;
+   align-items: normal;
+   justify-content:flex-end;
+   align-items: end;
+   position: relative;
+
+}
+.adsform button{
+    width:150px;
+    height: 35px;
+    
+    background-color: rgb(29, 219, 4);
+    position: relative;
+    float: right;
+    border-radius: 5px;
+    border:hidden;
+    margin-left:235px;
+
+}
+.ads_delete_button{
+    width:100%;
+    height:35px;
+    background-color: rgb(243, 243, 243);
+}
+.ads_delete_button button{
+    width:100%;
+    height:100%;
+    color:#ff1105 ;
+      text-align: center;
+      border:hidden;
+}

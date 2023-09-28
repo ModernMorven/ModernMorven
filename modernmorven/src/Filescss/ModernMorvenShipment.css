@@ -1,0 +1,41 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+ 
+
+}
+/* ModernMorvenShipment.css */
+
+.modern-morven-shipment {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    color: #0f176d;
+  }
+  
+  .shipment-item {
+    margin-bottom: 20px;
+  }
+  
+  .shipment-question {
+    color: rgb(37, 28, 28);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .shipment-answer {
+    color: rgb(123, 123, 123);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: normal;
+  }
+  

@@ -1,0 +1,611 @@
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+html,body{
+  height:100%;
+  width:100%;
+}
+.navbar-main-container{
+  height:100px;
+  width:1520px;
+  background-color:#110A2E;
+  padding:3px 5px;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 5px solid #FFBD59;
+}
+.logo-container{
+  height:100%;
+  width:20%;
+  background-color:#110A2E;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding:3px;
+}
+
+.logo-div{
+  height:100%;
+  width:100%;
+  background-color:#110A2E;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+.logo-div img{
+  max-width: 100%;
+  max-height: 100%;
+  background-size: cover; 
+}
+
+
+
+
+
+.input-tag-main-container{
+  height:100%;
+  width:100%;
+  background-color:#110A2E;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding:7px 0px 7px 0px;
+}
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  
+}
+.inputform{
+    display: block;
+    width: 100%;
+    height:60%;
+    
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border:hidden;
+    
+}
+::placeholder{
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:rgb(126, 126, 126);
+
+}
+.button-icon{
+    width:7%;
+    height:60%;
+    background-color: #FFBD59;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border:hidden;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.imagehandle{
+  width:max-content;
+  height:100%;
+ justify-content: center;
+
+ 
+}
+.imagehandle img{
+  max-width: 100%;
+  max-height: 100%;
+  background-size: cover;
+  
+}
+
+
+.profile-addtocart-main-div{
+  height:100%;
+  width:25%;
+  background-color:#110A2E;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding:2px;
+}
+.main-container-icons-handle{
+  width:100%;
+  height:100%;
+  background-color:#110A2E;
+  
+  display:flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2%;
+}
+.main-container-icons-handle button{
+  background-color: transparent;
+  border-color: transparent;
+  position:absolute;
+}
+.add-to-cart-count{
+  position:absolute;
+  height:35px;
+  width:35px;
+  background-color: #FFBD59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2em;
+  transform: translate(130%,-220%);
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+}
+
+/* ***************************** Profile dropdown */
+.dropdown-item button{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top:5%;
+  position: relative;
+  background-color: #FFBD59;
+  width:100%;
+  height:100%;
+  border-radius: 5px;
+}
+@media  only screen  and (max-width: 650px) and (min-width:320px){
+  html,body{
+    height:100%;
+    width:100%;
+  }
+  .navbar-main-container{
+    height:58px;
+    width:100%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    align-items: normal;
+    justify-content: normal;
+    border-bottom: 4px solid #FFBD59;
+    overflow: hidden;
+  }
+  .logo-container{
+    height:65px;
+    width: 160px;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+  }
+  
+  .logo-div{
+    height:100%;
+    width:100%;
+    background-color:#110A2E;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+  }
+  .logo-div img{
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover; 
+  }
+  
+  
+  
+  
+  .input-tag-main-container{
+    height:50px;
+    width:100%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:3px 0px 3px 0px;
+    margin-top: 7px;
+  }
+  .form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:70%;
+    
+  }
+  .inputform{
+      display: block;
+      width: 100%;
+      height:60%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border:hidden;
+
+      /* text-align: justify; */
+      
+  }
+  ::placeholder{
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(105, 104, 104);
+    font-size: 12px;
+  
+  }
+  .button-icon{
+      width:30px;
+      height:60%;
+      background-color: #FFBD59;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border:hidden;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+  
+  }
+  .imagehandle{
+    max-width:100%;
+    max-height:100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  
+   
+  }
+  .imagehandle img{
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    
+  }
+  
+  
+  .profile-addtocart-main-div{
+    height:60px;
+    width:80px;
+    
+    background-color:#110A2E;
+    display:flex;
+    position:relative;
+    align-items: center;
+    justify-content: space-between;
+    padding:2px;
+    /* margin-left: 140px; */
+    margin-top: 1px;
+
+    right:0;
+    
+  }
+  .main-container-icons-handle{
+    width:60px;
+    height:50px;
+    background-color:#110A2E;
+    
+    display:flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding-right: 2%;
+  }
+  .main-container-icons-handle button{
+    background-color: transparent;
+    border-color: transparent;
+    position:absolute;
+  }
+  .main-container-icons-handle button img{
+    width:30px;
+    height:30px;
+  }
+  .add-to-cart-count{
+    position:absolute;
+    height:16px;
+    width:16px;
+    background-color: #FFBD59;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    transform: translate(120%,-190%);
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size:12px;
+  }
+  
+  /* ***************************** Profile dropdown */
+  .dropdown-item button{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:5%;
+    position: absolute;
+    background-color: #FFBD59;
+    width:100%;
+    height:100%;
+    border-radius: 5px;
+  }
+  .dropdown button{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:5%;
+    position: absolute;
+    background-color: #FFBD59;
+    width:140px;
+    height:30px;
+    border-radius: 5px;
+  }
+  .btn{
+    text-decoration: none;
+   
+  }
+  .btn-close{
+    left:0;
+    /* top: 0; */
+  }
+
+
+  
+}
+
+@media only screen and (max-width: 1100px) and (min-width:651px){
+  html,body{
+    height:100%;
+    width:100%;
+  }
+  /* ****************** */
+  .navbar-main-container{
+    height:100px;
+    width:100%;
+    background-color:#110A2E;
+    padding:3px 5px;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 5px solid #FFBD59;
+  }
+  /* ************ */
+  .logo-container{
+    height:100%;
+    width:40%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+  }
+  
+  /* *************** */
+  .button-icon{
+      width:70px;
+      height:60%;
+      background-color: #FFBD59;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border:hidden;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      padding-top:2px;
+  
+  }
+ 
+  /* *********************************** */
+  .profile-addtocart-main-div{
+    height:100%;
+    width:333px;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:2px;
+  }
+  .dropdown button{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:5%;
+    position: absolute;
+    background-color: #FFBD59;
+    width:140px;
+    height:30px;
+    border-radius: 5px;
+  }
+  .btn{
+    text-decoration: none;
+   
+  }
+  .btn-close{
+    left:0;
+    /* top: 0; */
+  }
+ 
+} 
+@media only screen and (max-width: 1550px) and (min-width:1101px){
+  html,body{
+    height:100%;
+    width:100%;
+  }
+  /* ****************** */
+  .navbar-main-container{
+    height:110px;
+    width:100%;
+    background-color:#110A2E;
+    padding:3px 5px;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 5px solid #FFBD59;
+  }
+  /* ************ */
+  .logo-container{
+    height:100%;
+    width:30%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+  }
+  
+  /* *************** */
+  .button-icon{
+      width:80px;
+      height:60%;
+      background-color: #FFBD59;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border:hidden;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4px;
+  
+  }
+ 
+  /* *********************************** */
+  .profile-addtocart-main-div{
+    height:100%;
+    width:333px;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:2px;
+  }
+ 
+} 
+@media only screen and (max-width: 1959px) and (min-width:1551px){
+  html,body{
+    height:100%;
+    width:100%;
+  }
+  /* ****************** */
+  .navbar-main-container{
+    height:120px;
+    width:100%;
+    background-color:#110A2E;
+    padding:3px 5px;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 5px solid #FFBD59;
+  }
+  /* ************ */
+  .logo-container{
+    height:100%;
+    width:25%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+  }
+  
+  /* *************** */
+  .button-icon{
+      width:90px;
+      height:60%;
+      background-color: #FFBD59;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border:hidden;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4px;
+  
+  }
+ 
+  /* *********************************** */
+  .profile-addtocart-main-div{
+    height:100%;
+    width:333px;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:2px;
+  }
+ 
+} 
+@media only screen and (max-width: 3000px) and (min-width:1961px){
+  html,body{
+    height:100%;
+    width:100%;
+  }
+  /* ****************** */
+  .navbar-main-container{
+    height:150px;
+    width:100%;
+    background-color:#110A2E;
+    padding:3px 5px;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 5px solid #FFBD59;
+  }
+  /* ************ */
+  .logo-container{
+    height:100%;
+    width:20%;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+  }
+  
+  /* *************** */
+  .button-icon{
+      width:130px;
+      height:60%;
+      background-color: #FFBD59;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border:hidden;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+  
+  }
+ 
+  /* *********************************** */
+  .profile-addtocart-main-div{
+    height:100%;
+    width:400px;
+    background-color:#110A2E;
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:2px;
+  }
+ 
+} 
+
+

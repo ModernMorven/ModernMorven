@@ -1,0 +1,112 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+ 
+
+}
+/* Filescss/AboutUs.css */
+.aboutus_div{
+
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+   
+}
+/* Style for the main container */
+.aboutus_main_div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(254, 254, 254, 0.948);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+  }
+  .div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    border:1px solid rgb(81, 81, 81);
+   
+  } 
+ 
+
+  /* Style for the heading with highlighted text */
+  .aboutus_main_div h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 100px;
+    color:#100537
+  }
+  
+  /* Style for highlighted text */
+  .highlight {
+    color: #0e0e0e; /* You can change this color to your desired highlight color */
+    font-weight: bold;
+    color:#646464
+  }
+  
+  /* Style for the paragraphs */
+  .aboutus_main_div p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  /* Additional styles for specific sections */
+  .aboutus_main_div > div {
+    margin-bottom: 30px;
+  }
+  
+  /* Style for the vision section */
+  .aboutus_main_div > div:nth-child(2) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the promise section */
+  .aboutus_main_div > div:nth-child(3) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the partnership section */
+  .aboutus_main_div > div:nth-child(4) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the supply chain section */
+  .aboutus_main_div > div:nth-child(5) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the quality assurance section */
+  .aboutus_main_div > div:nth-child(6) h2 {
+    color: #0f176d;/* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the community section */
+  .aboutus_main_div > div:nth-child(7) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the contact section */
+  .aboutus_main_div > div:nth-child(8) h2 {
+    color: #0f176d; /* You can change this color to your desired color for this section */
+  }
+  
+  /* Style for the final section */
+  .aboutus_main_div > div:last-child h3 {
+    font-size: 20px;
+    color: #060525;
+    background-color: #fdf382f2; /* You can change this color to your desired color for this section */
+   
+}
+.myclass{
+  background-color: #fdf382f2;
+}
+  

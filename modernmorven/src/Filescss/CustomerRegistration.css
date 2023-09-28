@@ -1,0 +1,353 @@
+/*! Copyright (c) 2023 ModernMorven.com All Rights Reserved. */
+*{
+  margin:0%;
+  padding: 0%;
+}
+body,html{
+   width:100%;
+   height:100%;
+   box-sizing: border-box;
+  }
+  .mychecker_upper_border{
+    width:100%;
+    height:max-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  .register-mouterbox-m{
+    width:100%;
+    height:auto;
+     display: flex;
+     justify-content: center;
+     margin-top: 3%;
+  }
+  .register-mouterbox-m img{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+.containermycontainer22{
+  width:25%;
+  height:max-content;
+  display: flex;
+  flex-direction: column;
+ border: 1px solid rgb(101, 101, 101);
+ line-height: 19px;
+  padding: 10px 5px 0px 10px;
+  border-radius: 0.5em;
+  position: relative;
+}
+.registerform{
+  display:flex ;
+  flex-direction: column;
+  justify-content :center;
+}
+.registerform label{
+  padding-bottom: 5px;
+  color: solid rgb(33, 32, 32);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight:bold;
+  display: inline-block;  
+  padding:0 0 0px 3px;
+  margin-top: 5%;
+ 
+}
+.registerform input{
+  font-family: Arial;
+  height: 31px;
+  width:98%;
+  border: 1px solid #3a3a3a;
+  padding: 3px;
+  padding-top:7px;
+  border-radius: 3px;
+  outline-color: transparent;
+  color:rgb(50, 50, 50);
+  
+}
+.register-mouterbox-m input ::placeholder{
+  font-size: 14px ;
+ color: #8e8e8e;
+}
+.registerform input:hover{
+  box-shadow: 0 0 5px #004AAD; 
+  border: 1px solid #3a3a3a;
+  border:hidden;
+}
+
+.registerform input ::placeholder{
+  font-size: 14px ;
+ color: #8e8e8e;
+}
+
+.registerform button[type="submit"]{
+  background-color: #FFBD59;
+  height: 31px;
+  width:98%;
+  border: 1px solid #f3f2f2;
+  border-radius: 0.5em;
+  outline-color: transparent;
+  color:rgb(255, 255, 255);
+  /* display: inline-block; */
+  margin-top:50px;
+  
+  /* transform: translate(0%, 290%); */
+}
+
+.checkbox-checker{
+  background:transparent;
+  height :max-content;
+  width:100%;
+  padding-left: 7px;
+  margin-top:18px;
+  /* transform: translate(7%, 310%); */
+  /* background: #000; */
+}
+span{
+  font-size: 14px ;
+  color:rgb(72, 72, 72);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a{
+  font-size: 14px ;
+  color:#004AAD;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffb300;
+}
+.bg-border-small-vertical-line {
+  /* background-color: transparent; */
+  color: #004AAD;
+  font-size: 14px ;
+  margin-top: 15%;
+  text-align: center;
+  /* position:fixed; */
+  align-items: center;
+  width:100%;
+  height: max-content;
+
+
+}
+.termscheck{
+  margin-top: 3px;
+  margin-right: 10px;
+  width:100%;
+  height:40px;
+  margin-left: 5px;
+  position: relative;
+  
+}
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+color: #004AAD;
+  margin-left: 0px;
+}
+span{
+  font-size: 14px ;
+  color:#0a0131;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+.register-mouterbox-m p{
+  margin-left: 20px;
+  color: rgb(255, 3, 3);
+  padding: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+
+@media screen and (max-width:500px) and (min-width:320px) {
+ 
+.containermycontainer22{
+  width:85%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+}
+.registerform label{
+  padding-bottom: 5px;
+  color: solid rgb(33, 32, 32);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight:bold;
+  display: inline-block;  
+  padding:0 0 0px 3px;
+  margin-top: 5%;
+}
+.registerform button[type="submit"]{
+  background-color: #FFBD59;
+  height: 31px;
+  width:100%;
+  border: 1px solid #f3f2f2;
+  border-radius: 0.5em;
+  outline-color: transparent;
+  color:rgb(255, 255, 255);
+  display: inline-block;
+  margin-top:20%;
+  /* transform: translate(0%, 290%); */
+}
+
+
+}
+@media screen and (max-width:900px) and (min-width:501px) {
+
+.containermycontainer22{
+  width:45%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+ 
+  padding: 10px 5px 0px 10px;
+}
+
+}
+@media screen and (max-width:1000px) and (min-width:901px) {
+
+.containermycontainer22{
+  width:33%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+}
+
+
+}
+@media screen and (max-width:1200px) and (min-width:1001px) {
+
+.containermycontainer22{
+  width:33%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+  
+}
+
+}
+@media screen and (max-width:1500px) and (min-width:1201px) {
+.containermycontainer22{
+  width:31%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+}
+}
+@media screen and (max-width:1900px) and (min-width:1501px) {
+  
+.containermycontainer22{
+  width:25%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+}
+
+}
+@media screen and (max-width:3000px) and (min-width:1901px) {
+
+.containermycontainer22{
+  width:15%;
+  height:max-content;
+  /* *********************************************** */
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px 0px 10px;
+}
+.registerform label{
+  padding-bottom: 5px;
+  color: solid rgb(33, 32, 32);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight:bold;
+  display: inline-block;  
+  padding:0 0 0px 3px;
+  margin-top: 5%;
+ 
+}
+.registerform input{
+  /* background-color:#EFEFEF; */
+  font-family: Arial;
+  height: 34px;
+  width:98%;
+  /* margin-left: 20px; */
+  /* margin-top: 15px; */
+  border: 1px solid #3a3a3a;
+  padding: 3px;
+  padding-top:7px;
+  border-radius: 3px;
+  outline-color: transparent;
+  color:rgb(50, 50, 50);
+  
+}
+.termscheck{
+width:100%;
+height:max-content;
+padding-right:2%;
+line-height: 1.5;
+}
+.termscheck span{
+  font-size: 19px;
+  text-wrap: wrap;
+ 
+}
+
+.termscheck input{
+  transform: translate(-26%,15%);
+  width: 25px;
+  height: 25px;
+color: #004AAD;
+
+}
+span{
+  font-size: 18px ;
+  color:#0a0131;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+
+.register-mouterbox-m p{
+  margin-left: 20px;
+  color: rgb(255, 3, 3);
+  padding: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+a{
+  font-size: 18px ;
+  color:#004AAD;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffb300;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
