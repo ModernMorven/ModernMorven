@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 
 const corsOptions = {
-  origin: [ "http://modernmorven.com","www.modernmorven.com","https://modernmorven.com", "http://185.201.9.59"],
+  origin: [ "http://modernmorven.com","http://www.modernmorven.com","https://modernmorven.com", "http://185.201.9.59"],
 };
 
 
