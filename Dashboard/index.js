@@ -6,19 +6,19 @@ require("./DataBase/Connection");
 const app = express();
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', "http:/127.0.0.1:3000");
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
-const cors=require("cors");
-app.use(cors());
+
+const cors = require("cors");
+
 const corsOptions = {
   origin: ["http://127.0.0.1:3000", "http://modernmorven.com", "http://185.201.9.59"],
 };
 
+app.use(cors(corsOptions)); // Use this middleware to handle CORS
 
+// Your other routes and middleware go here...
 
+// Handle preflight requests (OPTIONS method)
+app.options("*", cors(corsOptions));
 
 const UserModel = require("./models/Signup");
 
