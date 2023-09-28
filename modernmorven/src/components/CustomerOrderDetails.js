@@ -4,7 +4,7 @@ import '../Admincss/OrderDetails.css';
 import Navbar from './Navbar';
 
 
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function copyToClipboard(text) {
    

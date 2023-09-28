@@ -4,7 +4,7 @@ import '../Admincss/OrderDetails.css'
 import AdminNavbar from './AdminNavbar';
 import { useNavigate } from 'react-router-dom';
 
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function OrderDetails() {
   const orderId=localStorage.getItem("AdminPas");
