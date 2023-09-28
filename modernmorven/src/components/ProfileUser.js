@@ -44,7 +44,7 @@ useEffect(() => {
 
   const showdata=async()=>{
     try{
-      const response= await fetch("http://localhost:8000/CustomerShowProfile",{
+      const response= await fetch("http://backendapi.modernmorven.com/CustomerShowProfile",{
         method:"POST",
         body:JSON.stringify({
           "key":key,
@@ -79,7 +79,7 @@ const handlechange=async()=>{
         return;
       }
     }
-      const response= await fetch("http://localhost:8000/CustomerEditProfile",{
+      const response= await fetch("http://backendapi.modernmorven.com/CustomerEditProfile",{
         method:"POST",
         body:JSON.stringify({
           "key":storeduser._id,

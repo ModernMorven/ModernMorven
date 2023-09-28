@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 const cors=require("cors");
 app.use(cors());
 const corsOptions = {
-  origin: "http://127.0.0.1:3000",
+  origin: ["http://127.0.0.1:3000", "http://modernmorven.com", "http://185.201.9.59"],
 };
 
 

@@ -14,7 +14,7 @@ function InventoryHistory() {
   },[]);
   const showInventory=async()=>{
     try{
-  const response= await fetch("http://localhost:8000/showInventory");
+  const response= await fetch("http://backendapi.modernmorven.com/showInventory");
   const data= await response.json();
   if(response.ok&&!data.result){
     setInventory(data);

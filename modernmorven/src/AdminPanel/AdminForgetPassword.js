@@ -62,7 +62,7 @@ const [inputTime, setInputTime] = useState(null);
       const randomNumber = Math.floor(10000 + Math.random() * 90000);
           const randomString = randomNumber.toString();
          setgeneratenum(randomString);
-         const response=await fetch("http://localhost:8000/Admin/SEND/TOKEN",{
+         const response=await fetch("http://backendapi.modernmorven.com/Admin/SEND/TOKEN",{
            method:"POST",
            body:JSON.stringify({"key":email,"value":randomString}),
            headers:{
@@ -107,7 +107,7 @@ const [inputTime, setInputTime] = useState(null);
     if(password===confirmpassowrd){
       setloader('on');
       try {
-        const response= await fetch("http://localhost:8000/Admin/SEND/UPDATE",{
+        const response= await fetch("http://backendapi.modernmorven.com/Admin/SEND/UPDATE",{
           method:'post',
           body: JSON.stringify({"key":email,"value":password}),
           headers:{'content-type':'application/json'}

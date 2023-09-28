@@ -27,7 +27,7 @@ const handleSubmit=async(event)=>{
          
           try{
             setloader("on")
-            const response= await fetch("http://localhost:8000/customersignup",{
+            const response= await fetch("http://backendapi.modernmorven.com/customersignup",{
               method:"post",
               body: JSON.stringify({ "mail":email,"name":name,"passhash":passwordhash}),
               headers:{

@@ -19,7 +19,7 @@ function AddToCart() {
 
     try {
       setloader("on")
-      const respond = await fetch('http://localhost:8000/api/cartitems', {
+      const respond = await fetch('http://backendapi.modernmorven.com/api/cartitems', {
         method: 'post',
         body: JSON.stringify({ key: StoredUser }),
         headers: {
@@ -45,7 +45,7 @@ function AddToCart() {
   const removefromcart = async (id) => {
     try {
       setloader('on')
-      const response = await fetch('http://localhost:8000/apicartremove', {
+      const response = await fetch('http://backendapi.modernmorven.com/apicartremove', {
         method: 'POST',
         body: JSON.stringify({ "key":id }),
         headers: {

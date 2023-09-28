@@ -20,7 +20,7 @@ function ManageAccessA() {
   const fetchadmin=async()=>{
     const AdminId= localStorage.getItem('Addtoken');
     try {
-      const response= await fetch("http://localhost:8000/apisingle/admins",{
+      const response= await fetch("http://backendapi.modernmorven.com/apisingle/admins",{
         method:"POST",
         body:JSON.stringify({"key":AdminId }),
         headers:{
@@ -42,7 +42,7 @@ function ManageAccessA() {
   const handleSubmissionadmin=async(e)=>{
     e.preventDefault();
     try {
-      const response= await fetch("http://localhost:8000/Admin/SEND/Edit/profile",{
+      const response= await fetch("http://backendapi.modernmorven.com/Admin/SEND/Edit/profile",{
         method:"POST",
         body:JSON.stringify({
           "key":stored._id,
@@ -71,7 +71,7 @@ function ManageAccessA() {
   }
   const handleDelete=async()=>{
     try {
-      const response= await fetch("http://localhost:8000/Admin/Access/delete ",{
+      const response= await fetch("http://backendapi.modernmorven.com/Admin/Access/delete ",{
         method:"POST",
         body:JSON.stringify({
           "key":stored._id,
@@ -101,7 +101,7 @@ function ManageAccessA() {
   }
   const handleEnable=async(check)=>{
     try {
-      const response= await fetch("http://localhost:8000/Admin/Access/Add/remove ",{
+      const response= await fetch("http://backendapi.modernmorven.com/Admin/Access/Add/remove ",{
         method:"POST",
         body:JSON.stringify({
           "key":stored._id,

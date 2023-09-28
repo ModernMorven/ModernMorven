@@ -40,7 +40,7 @@ function OrderDetails() {
 const detailhistory=async()=>{
   try{
    
-const response= await fetch("http://localhost:8000/detailorderhistory",{
+const response= await fetch("http://backendapi.modernmorven.com/detailorderhistory",{
   method:"POST",
   body: JSON.stringify({"key": orderId}),
   headers:{
@@ -59,7 +59,7 @@ if(response.ok){
 }
 const handleOrderCancle=async()=>{
   try{
- const response= await fetch("http://localhost:8000/orderCancelReason",{
+ const response= await fetch("http://backendapi.modernmorven.com/orderCancelReason",{
   method:"POST",
   body: JSON.stringify({
     "key": product._id,
@@ -90,7 +90,7 @@ const handleOrderCancle=async()=>{
 }
 const handleaddtracking=async()=>{
   try{
- const response= await fetch("http://localhost:8000/orderTracking",{
+ const response= await fetch("http://backendapi.modernmorven.com/orderTracking",{
   method:"POST",
   body: JSON.stringify({
     "key": product._id,
@@ -121,7 +121,7 @@ const handleaddtracking=async()=>{
 
 const markasdelivered=async()=>{
   try{
-    const response= await fetch("http://localhost:8000/orderdelivered",{
+    const response= await fetch("http://backendapi.modernmorven.com/orderdelivered",{
      method:"POST",
      body: JSON.stringify({
        "key": product._id,

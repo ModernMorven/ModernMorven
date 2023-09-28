@@ -34,7 +34,7 @@ function Navbar() {
     const StoredUser= JSON.parse(localStorage.getItem('user'))._id;
      
     try{
-      const respond= await fetch("http://localhost:8000/api/searchcart",{
+      const respond= await fetch("http://backendapi.modernmorven.com/api/searchcart",{
         method:"post",
         body: JSON.stringify({"key":StoredUser}),
         headers:{

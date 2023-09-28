@@ -87,7 +87,7 @@ function CustomerRating() {
       const currentDate= new Date();
       const formattedDateTime = formatDateTime(currentDate);
 
-      const response = await fetch("http://localhost:8000/customerrating",{
+      const response = await fetch("http://backendapi.modernmorven.com/customerrating",{
         method:"POST",
         body: JSON.stringify({"orderid":orderid,
         "productid":productid,

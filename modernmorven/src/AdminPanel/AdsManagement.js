@@ -38,7 +38,7 @@ function AdsManagement() {
     }, );
     const showAds=async()=>{
       try{
-        const response= await fetch("http://localhost:8000/api/runningads");
+        const response= await fetch("http://backendapi.modernmorven.com/api/runningads");
         const data= await response.json();
         if(response.ok &&!data.result)
         {
@@ -65,7 +65,7 @@ function AdsManagement() {
       else{
         const formdata= new FormData();
         formdata.append("image",adname)
-      const response= await fetch("http://localhost:8000/AdsManage",{
+      const response= await fetch("http://backendapi.modernmorven.com/AdsManage",{
         method:"POST" ,
         body : formdata,
       });
@@ -92,7 +92,7 @@ function AdsManagement() {
 
     const removeAds=async(ImageID)=>{
       try{
-        const response= await fetch("http://localhost:8000/api/delete/ads",{
+        const response= await fetch("http://backendapi.modernmorven.com/api/delete/ads",{
           method:"POST",
           body:JSON.stringify({"key":ImageID}),
           headers:{

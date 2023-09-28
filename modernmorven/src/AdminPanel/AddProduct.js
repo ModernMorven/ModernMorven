@@ -185,7 +185,7 @@ const [alertcolour, setalertcolour] = useState("success");
               ProductForm.append('images', selectedFiles[i]);
             }
              ProductForm.append("deliverycharges",formData.deliverycharges);
-    const addproduct= await fetch("http://localhost:8000/Addproduct",{
+    const addproduct= await fetch("http://backendapi.modernmorven.com/Addproduct",{
         method:"POST",
         body: ProductForm,
      }) 

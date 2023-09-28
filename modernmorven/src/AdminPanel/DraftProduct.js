@@ -14,7 +14,7 @@ useEffect(() => {
 
   const getDraft=async()=>{
     try{
-       const response= await fetch("http://localhost:8000/draftproduct")
+       const response= await fetch("http://backendapi.modernmorven.com/draftproduct")
        const data=await response.json();
        if(response.ok && !data.result){
           setdraftbin(data);

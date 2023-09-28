@@ -20,7 +20,7 @@ const [loader, setloader] = useState('off');
     event.preventDefault();
   try{
     setloader("on");
-    const result= await fetch("http://localhost:8000/customerlogin",{
+    const result= await fetch("http://backendapi.modernmorven.com/customerlogin",{
       method:"POST",
       body: JSON.stringify({ _id: email, password :password }),
       headers:{

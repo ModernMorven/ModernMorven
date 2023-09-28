@@ -21,7 +21,7 @@ const [Review, setReview] = useState([]);
 const resultreviews=async()=>{
 try{
   const storedID= localStorage.getItem('token')
-  const response =await fetch("http://localhost:8000/customerreviews",{
+  const response =await fetch("http://backendapi.modernmorven.com/customerreviews",{
     method:"POST",
     body: JSON.stringify({"key":storedID}),
     headers:{

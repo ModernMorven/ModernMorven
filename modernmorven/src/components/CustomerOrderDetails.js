@@ -61,7 +61,7 @@ function CustomerOrderDetails() {
 const detailhistory=async()=>{
   try{
     const storedKey= localStorage.getItem('oorder');
-const response= await fetch("http://localhost:8000/detailorderhistory",{
+const response= await fetch("http://backendapi.modernmorven.com/detailorderhistory",{
   method:"POST",
   body: JSON.stringify({"key": storedKey}),
   headers:{
@@ -80,7 +80,7 @@ if(response.ok){
 }
 const handleOrderCancle=async()=>{
   try{
- const response= await fetch("http://localhost:8000/orderCancelReason",{
+ const response= await fetch("http://backendapi.modernmorven.com/orderCancelReason",{
   method:"POST",
   body: JSON.stringify({
     "key": product._id,

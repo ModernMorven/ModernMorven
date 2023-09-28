@@ -179,7 +179,7 @@ const ADDtoCart=async()=>{
                 setalertmsg(`Please Select a valid Quantity`);
                 setalertColor("danger");
               }else{
-                      const resp= await fetch('http://localhost:8000/customercart',{
+                      const resp= await fetch('http://backendapi.modernmorven.com/customercart',{
                         method:"post",
                         body: JSON.stringify({"customerid":storedUser,
                                               "productid":majorlist._id,
@@ -220,7 +220,7 @@ const findtotalorders=async()=>{
  
 
   try{
-    const respond= await fetch("http://localhost:8000/ordercount",{
+    const respond= await fetch("http://backendapi.modernmorven.com/ordercount",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{
@@ -240,7 +240,7 @@ const findtotalorders=async()=>{
 const findtotalrating=async()=>{
  
   try{
-    const respond= await fetch("http://localhost:8000/averagerating",{
+    const respond= await fetch("http://backendapi.modernmorven.com/averagerating",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{

@@ -34,7 +34,7 @@ const OrderHistory=async()=>{
   const storedUser = JSON.parse(localStorage.getItem('user'))._id;
   try{
     
-    const response= await fetch("http://localhost:8000/orderhistory",{
+    const response= await fetch("http://backendapi.modernmorven.com/orderhistory",{
       method:"POST",
       body:JSON.stringify({"key":storedUser}),
       headers:{
@@ -76,7 +76,7 @@ const findFeedBack=async(orderID)=>{
   
   try{
   
-    const response= await fetch("http://localhost:8000/customerCheckFeedback",{
+    const response= await fetch("http://backendapi.modernmorven.com/customerCheckFeedback",{
       method:"POST",
       body: JSON.stringify({"key":orderID}),
       headers:{
