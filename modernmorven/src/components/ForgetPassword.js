@@ -61,7 +61,7 @@ const [inputTime, setInputTime] = useState(null);
       const randomNumber = Math.floor(10000 + Math.random() * 90000);
           const randomString = randomNumber.toString();
          setgeneratenum(randomString);
-         const response=await fetch("http://backendapi.modernmorven.com/CMAIL/SENDOTP",{
+         const response=await fetch("https://backendapi.modernmorven.com/CMAIL/SENDOTP",{
            method:"POST",
            body:JSON.stringify({"key":email,"value":randomString}),
            headers:{
@@ -104,7 +104,7 @@ const [inputTime, setInputTime] = useState(null);
 //  }
 //  else{
 //     try {
-//       const response=await fetch("http://backendapi.modernmorven.com/CMAIL/FIND",{
+//       const response=await fetch("https://backendapi.modernmorven.com/CMAIL/FIND",{
 //         method:"POST",
 //         body:JSON.stringify({"key":email}),
 //         headers:{
@@ -151,7 +151,7 @@ const [inputTime, setInputTime] = useState(null);
     if(password===confirmpassowrd){
       setloader('on');
       try {
-        const response= await fetch("http://backendapi.modernmorven.com/CMAIL/FIND/updatepassword",{
+        const response= await fetch("https://backendapi.modernmorven.com/CMAIL/FIND/updatepassword",{
           method:'post',
           body: JSON.stringify({"key":email,"value":password}),
           headers:{'content-type':'application/json'}

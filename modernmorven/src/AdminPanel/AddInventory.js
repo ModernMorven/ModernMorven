@@ -165,7 +165,7 @@ const [alertcolour, setalertcolour] = useState("success");
               ProductForm.append('images', selectedFiles[i]);
             }
 
-    const addproduct= await fetch("http://backendapi.modernmorven.com/Addinventory",{
+    const addproduct= await fetch("https://backendapi.modernmorven.com/Addinventory",{
         method:"POST",
         body: ProductForm,
      }) 

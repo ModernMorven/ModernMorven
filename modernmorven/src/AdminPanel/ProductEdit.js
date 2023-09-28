@@ -33,7 +33,7 @@ const [displayimages,setdisplayimages]=useState([]);
 const [displayvideo, setdisplayvideo] = useState('');
     const fetchdata=async()=>{
       try {
-        const response=await fetch("http://backendapi.modernmorven.com/api/draft/search",{
+        const response=await fetch("https://backendapi.modernmorven.com/api/draft/search",{
           method:"post",
           body:JSON.stringify({"key":storedid}),
           headers:{
@@ -254,7 +254,7 @@ const handleSubmission = async (e) => {
     }
     ProductForm.append("deliverycharges", formData.deliverycharges);
     console.log(ProductForm)
-    const addproduct = await fetch("http://backendapi.modernmorven.com/api/draft/Edit", {
+    const addproduct = await fetch("https://backendapi.modernmorven.com/api/draft/Edit", {
       method: "POST",
       body: ProductForm,
     });
@@ -277,7 +277,7 @@ const handleSubmission = async (e) => {
   const handleimagesdelete=async(index)=>{
    console.log("hello")
     try {
-      const response=await fetch("http://backendapi.modernmorven.com/api/edit/product/delete/images",{
+      const response=await fetch("https://backendapi.modernmorven.com/api/edit/product/delete/images",{
         method:"post",
         body:JSON.stringify({"key":formData._id,"index":index}),
         headers:{
@@ -302,7 +302,7 @@ const handleSubmission = async (e) => {
   const handlevideodelete=async(index)=>{
    console.log("hello")
     try {
-      const response=await fetch("http://backendapi.modernmorven.com/api/edit/product/delete/videourl",{
+      const response=await fetch("https://backendapi.modernmorven.com/api/edit/product/delete/videourl",{
         method:"post",
         body:JSON.stringify({"key":formData._id}),
         headers:{

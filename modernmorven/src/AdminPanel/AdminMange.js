@@ -21,7 +21,7 @@ function AdminMange() {
   });
   const fetchAdmin=async()=>{
     try {
-        const response = await fetch("http://backendapi.modernmorven.com/api/fetch/admins");
+        const response = await fetch("https://backendapi.modernmorven.com/api/fetch/admins");
         const data =await  response.json();
     if(response.ok &&!data.message){
         setlist(data);
@@ -44,7 +44,7 @@ function AdminMange() {
                 setresponsemessage("Invalid Fields");
                 return;
             }
-            const response= await fetch("http://backendapi.modernmorven.com/Admin/SUBMIT/ADD/ADMIN",{
+            const response= await fetch("https://backendapi.modernmorven.com/Admin/SUBMIT/ADD/ADMIN",{
                 method:"POST",
                 body:JSON.stringify({
                     "key": myadminkey,

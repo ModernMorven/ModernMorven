@@ -12,7 +12,7 @@ function ViewProduct() {
   
   const getallproduct=async()=>{
     try{
-      const response= await fetch("http://backendapi.modernmorven.com/manageproduct")
+      const response= await fetch("https://backendapi.modernmorven.com/manageproduct")
       const data= await response.json();
       if(response.ok && !data.result ){
                setproducts(data);

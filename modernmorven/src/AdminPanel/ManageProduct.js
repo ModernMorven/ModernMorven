@@ -14,7 +14,7 @@ function ManageProduct() {
      },[]);
  const getproducts=async()=>{
      try{
-   const response = await fetch("http://backendapi.modernmorven.com/manageproduct");
+   const response = await fetch("https://backendapi.modernmorven.com/manageproduct");
    const data= await response.json();
    if(response.ok &&!data.result ){
       setProducts(data);
@@ -31,7 +31,7 @@ function ManageProduct() {
  }
  const handlecheckavailability=async(status,ProductID)=>{
 try{
-  const response=await fetch("http://backendapi.modernmorven.com/updateavailability",{
+  const response=await fetch("https://backendapi.modernmorven.com/updateavailability",{
     method:"POST",
     body:JSON.stringify({"key":ProductID,"status":status}),
     headers:{
@@ -59,7 +59,7 @@ setcolour("danger");
  }
  const handlecheckStatus=async(status,ProductID)=>{
 try{
-  const response=await fetch("http://backendapi.modernmorven.com/updateStatus",{
+  const response=await fetch("https://backendapi.modernmorven.com/updateStatus",{
     method:"POST",
     body:JSON.stringify({"key":ProductID,"status":status}),
     headers:{
@@ -93,7 +93,7 @@ try{
     setcolour("danger");
   }
   else{
-    const response=await fetch("http://backendapi.modernmorven.com/deleteProduct",{
+    const response=await fetch("https://backendapi.modernmorven.com/deleteProduct",{
       method:"POST",
       body:JSON.stringify({"key":deleteid}),
       headers:{

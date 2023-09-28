@@ -23,7 +23,7 @@ useEffect(() => {
 
     const fetchOrders=async()=>{
         try {
-            const response= await fetch("http://backendapi.modernmorven.com/admin/main/showOrders");
+            const response= await fetch("https://backendapi.modernmorven.com/admin/main/showOrders");
             const data= await response.json();
             if(response.ok&&!data.message){
                 setorders(data);
@@ -37,7 +37,7 @@ useEffect(() => {
     }
     const fetchreviews=async()=>{
         try {
-            const response= await fetch("http://backendapi.modernmorven.com/admin/main/showReviews");
+            const response= await fetch("https://backendapi.modernmorven.com/admin/main/showReviews");
             const data= await response.json();
             if(response.ok&&!data.message){
                 setreviews(data);
@@ -51,7 +51,7 @@ useEffect(() => {
     }
     const fetchRevenue=async()=>{
         try {
-            const response= await fetch("http://backendapi.modernmorven.com/admin/main/showRevenue");
+            const response= await fetch("https://backendapi.modernmorven.com/admin/main/showRevenue");
             const data= await response.json();
             if(response.ok&&!data.message){
                 setrevenue(data);
@@ -65,7 +65,7 @@ useEffect(() => {
     }
     const fetchcustomers=async()=>{
         try {
-            const response= await fetch("http://backendapi.modernmorven.com/admin/main/showcustomers");
+            const response= await fetch("https://backendapi.modernmorven.com/admin/main/showcustomers");
             const data= await response.json();
             if(response.ok&&!data.message){
                 setcustomers(data);

@@ -11,7 +11,7 @@ function ViewOrder() {
   }, []);
   const ordersdisplay=async()=>{
     try{
-    const response = await fetch('http://backendapi.modernmorven.com/api/viewall/orders');
+    const response = await fetch('https://backendapi.modernmorven.com/api/viewall/orders');
     const data=await  response.json();
     if(response.ok && !data.result){
       setproduct(data);

@@ -24,7 +24,7 @@ function CustomerOrder(){
 const getmainproducts=async()=>{
   showAds();
   try{
-  const response= await fetch("http://backendapi.modernmorven.com/mainarticle");
+  const response= await fetch("https://backendapi.modernmorven.com/mainarticle");
   const data= await response.json();
   if (response.ok && !data.result) {
     // Map over the data array and fetch total orders and rating for each item
@@ -56,7 +56,7 @@ const loadMore=()=>{
 const findtotalorders=async(ItemId)=>{
  
   try{
-    const respond= await fetch("http://backendapi.modernmorven.com/ordercount",{
+    const respond= await fetch("https://backendapi.modernmorven.com/ordercount",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{
@@ -76,7 +76,7 @@ const findtotalorders=async(ItemId)=>{
 const findtotalrating=async(ItemId)=>{
  
   try{
-    const respond= await fetch("http://backendapi.modernmorven.com/averagerating",{
+    const respond= await fetch("https://backendapi.modernmorven.com/averagerating",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{
@@ -98,7 +98,7 @@ const [adsimage, setadsimage] = useState([]);
 const [adsmessage, setadsmessage] = useState('');
 const showAds=async()=>{
   try{
-    const response= await fetch("http://backendapi.modernmorven.com/api/runningads");
+    const response= await fetch("https://backendapi.modernmorven.com/api/runningads");
     const data= await response.json();
     if(response.ok &&!data.result)
     {

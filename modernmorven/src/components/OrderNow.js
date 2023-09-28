@@ -22,7 +22,7 @@ function OrderNow() {
      
     
     //localStorage.removeItem('token');
-       const response = await fetch("http://127.0.0.1:8000/majorproduct",{
+       const response = await fetch("https://127.0.0.1:8000/majorproduct",{
         method:"POST",
         body: JSON.stringify({"mykey":ItemId}),
         headers:{
@@ -115,7 +115,7 @@ const submithandle=async(e)=>{
       
       const currentDate= new Date();
       const formattedDateTime = formatDateTime(currentDate);
-      const response= await fetch("http://backendapi.modernmorven.com/ordermanagement",{
+      const response= await fetch("https://backendapi.modernmorven.com/ordermanagement",{
         method:"POST",
         body:JSON.stringify(
         {

@@ -53,7 +53,7 @@ const [majorlist, setmajorlist] = useState([])
 const majorDataCollect = async() => {
 
 
-   const response = await fetch("http://127.0.0.1:8000/majorproduct",{
+   const response = await fetch("https://127.0.0.1:8000/majorproduct",{
     method:"POST",
     body: JSON.stringify({"mykey":ItemId}),
     headers:{
@@ -179,7 +179,7 @@ const ADDtoCart=async()=>{
                 setalertmsg(`Please Select a valid Quantity`);
                 setalertColor("danger");
               }else{
-                      const resp= await fetch('http://backendapi.modernmorven.com/customercart',{
+                      const resp= await fetch('https://backendapi.modernmorven.com/customercart',{
                         method:"post",
                         body: JSON.stringify({"customerid":storedUser,
                                               "productid":majorlist._id,
@@ -220,7 +220,7 @@ const findtotalorders=async()=>{
  
 
   try{
-    const respond= await fetch("http://backendapi.modernmorven.com/ordercount",{
+    const respond= await fetch("https://backendapi.modernmorven.com/ordercount",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{
@@ -240,7 +240,7 @@ const findtotalorders=async()=>{
 const findtotalrating=async()=>{
  
   try{
-    const respond= await fetch("http://backendapi.modernmorven.com/averagerating",{
+    const respond= await fetch("https://backendapi.modernmorven.com/averagerating",{
       method:"post",
       body: JSON.stringify({"key":ItemId}),
       headers:{
