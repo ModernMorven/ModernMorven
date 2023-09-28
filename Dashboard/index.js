@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require('path');
 const multer = require("multer");
 const port = 8000
 require("./DataBase/Connection");
@@ -23,7 +24,11 @@ app.use((req, res, next) => {
 const corsOptions = {
   origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
 };
+app.use(express.static(path.join(__dirname, 'build')));
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use(cors(corsOptions)); // Use this middleware to handle CORS
 
