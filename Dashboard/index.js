@@ -9,19 +9,19 @@ app.use(express.json());
 
 const cors = require("cors");
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', "www.modernmorven.com");
+  res.header('Access-Control-Allow-Origin', "https://www.modernmorven.com");
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', "http://185.201.9.59");
+  res.header('Access-Control-Allow-Origin', "https://185.201.9.59");
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
 
 const corsOptions = {
-  origin: [ "http://modernmorven.com","http://www.modernmorven.com","https://modernmorven.com", "http://185.201.9.59"],
+  origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
 };
 
 
