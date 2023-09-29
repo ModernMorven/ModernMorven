@@ -32,7 +32,7 @@ function CustomerRating() {
     const majorDataCollect = async() => {
   try{
 
-      const response = await fetch("https://127.0.0.1:8000/majorproduct",{
+      const response = await fetch("https://backendapi.modernmorven.com/majorproduct",{
        method:"POST",
        body: JSON.stringify({"mykey":productid}),
        headers:{
