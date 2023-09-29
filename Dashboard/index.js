@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require('path');
 const multer = require("multer");
 const port = 8000
 require("./DataBase/Connection");
@@ -24,17 +23,9 @@ app.use((req, res, next) => {
 const corsOptions = {
   origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
 };
-// app.use(express.static(path.join(__dirname, 'build')));
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
 
 app.use(cors(corsOptions)); // Use this middleware to handle CORS
-
-// Your other routes and middleware go here...
-
-// Handle preflight requests (OPTIONS method)
 app.options("*", cors(corsOptions));
 
 const UserModel = require("./models/Signup");
@@ -583,7 +574,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
   else{
     let videourl;
     const data=req.body._id;
-    const imageUrls = req.files.map(file => `/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -796,7 +787,7 @@ app.get("/api/viewall/orders",async(req,res)=>{
 
   try{
     let videourl;
-    const imageUrls = req.files.map(file => `/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -850,7 +841,7 @@ const AdsModel= new mongoose.model("adsimages",AdsSchema);
 app.post("/AdsManage",upload.single("image"),async(req,res)=>{
   try{
   const response= new AdsModel({
-    adsimageUrl:`/ProductData/${req.file.filename}`
+    adsimageUrl:`https://modernmorven.com/ProductData/${req.file.filename}`
   })
   const data=await  response.save();
   if(response){
@@ -1123,7 +1114,7 @@ app.post("/api/draft/Edit",upload.array('images'),async(req,res)=>{
     let videourl;
     let imageUrls;
     if (req.files && req.files.length > 0){
-    imageUrls = req.files.map(file => `/ProductData/${file.filename}`);
+    imageUrls = req.files.map(file => `https://modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
