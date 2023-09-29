@@ -92,7 +92,7 @@ app.use(express.json());
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: '../modernmorven/public/ProductData', // Change this to your desired destination
+  destination: 'var/www/ModernMorven/modernmorven/public/ProductData', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
