@@ -1,9 +1,12 @@
 import React from 'react';
 import '../Filescss/FAQSModernMorven.css';
+import { Link } from 'react-router-dom';
+
 
 const FAQSModernMorven = () => {
   return (
   <>
+  
     <div className="modern-morven">
       <h1 className="heading">Frequently Asked Questions</h1><br/>
       <div className="faq-item">
@@ -110,7 +113,7 @@ const FAQSModernMorven = () => {
       </div> */}
       <p>If you have any further questions or concerns, feel free to reach out to our customer 
         support team for assistance.
-         We hope you enjoy your shopping experience on Modern Morven!</p>
+         We hope you enjoy your shopping experience on <Link to='/Admin'> Modern Morven!</Link> </p>
 
       {/* Add more FAQ items here */}
 

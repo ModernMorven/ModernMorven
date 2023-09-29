@@ -82,7 +82,7 @@ function App() {
 
                 
                       {/* <Route exact path='/' element={<UploadImage/>}> </Route> */}
-                      <Route exact path='/AdminLogin' element={<AdminLogin/>}> </Route>
+                      <Route  path='/AdminLogin' element={<AdminLogin/>}> </Route>
                       <Route exact path='/AdminForgetPassword' element={<AdminForgetPassword/>}> </Route>
                         <Route  element={<PrivateRoutes/>}> 
                         <Route exact path='/Admin' element={<AdminDashboard/>}> </Route>
