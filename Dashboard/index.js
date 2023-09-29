@@ -583,9 +583,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
   else{
     let videourl;
     const data=req.body._id;
-    const imageUrls = req.files.map(
-      (file) => `https://modernmorven.com/ProductData/${file.filename}` // Update to your domain URL
-    );
+    const imageUrls = req.files.map(file => `/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
