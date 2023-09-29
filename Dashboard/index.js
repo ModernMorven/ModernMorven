@@ -101,7 +101,7 @@ app.use(express.json());
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: '../modernmorven/public/ProductData', // Change this to your desired destination
+  destination: '/var/www/ModernMorven/modernmorven/public/ProductData', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -583,7 +583,9 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
   else{
     let videourl;
     const data=req.body._id;
-    const imageUrls = req.files.map(file => `/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(
+      (file) => `https://modernmorven.com/ProductData/${file.filename}` // Update to your domain URL
+    );
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];

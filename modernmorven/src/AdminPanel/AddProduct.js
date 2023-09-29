@@ -204,7 +204,7 @@ const [alertcolour, setalertcolour] = useState("success");
       }
       else{
         // alert("An error OCCUR UNKNOWN ");
-        console.log(await addproduct.text());
+        console.log(productdata);
       }
     }
       catch(error){
