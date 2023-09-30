@@ -83,10 +83,7 @@ catch(error){
 
 
 const Adminlogin=require("./models/Adminlogin")
-// this api is working properely but i am not use it right now 
 
-
-//***************************************************************************************
 
 app.use(express.json());
 
