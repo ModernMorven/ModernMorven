@@ -10,12 +10,12 @@ app.use(express.json());
 const cors = require("cors");
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', "https://www.modernmorven.com");
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, ProductForm, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
   next();
 });
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', "https://185.201.9.59");
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,ProductForm, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
   next();
 });
 
@@ -82,14 +82,13 @@ catch(error){
 
 
 const Adminlogin=require("./models/Adminlogin")
-const Adminlogin=require("./ProductData")
 
 app.use(express.json());
 
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: './ProductData', // Change this to your desired destination
+  destination: '../modernmorven/build/ProductData', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -837,7 +836,7 @@ const AdsModel= new mongoose.model("adsimages",AdsSchema);
 app.post("/AdsManage",upload.single("image"),async(req,res)=>{
   try{
   const response= new AdsModel({
-    adsimageUrl:`./ProductData/${req.file.filename}`
+    adsimageUrl:`https://www.modernmorven.com/ProductData/${req.file.filename}`
   })
   const data=await  response.save();
   if(response){
