@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const port = 8000
 require("./DataBase/Connection");
-
 const app = express();
 app.use(express.json());
 
@@ -83,15 +82,17 @@ catch(error){
 
 
 const Adminlogin=require("./models/Adminlogin")
+// this api is working properely but i am not use it right now 
 
 
+//***************************************************************************************
 
 app.use(express.json());
 
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: '../Dashboard/public/ProductData', // Change this to your desired destination
+  destination: '../modernmorven/public/ProductData', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -572,7 +573,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
     }
   else{
     let videourl;
-    const imageUrls = req.files.map(file => `https://backendapi.modernmorven.com/public/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -785,7 +786,7 @@ app.get("/api/viewall/orders",async(req,res)=>{
 
   try{
     let videourl;
-    const imageUrls = req.files.map(file => `https://backendapi.modernmorven.com/public/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -839,7 +840,7 @@ const AdsModel= new mongoose.model("adsimages",AdsSchema);
 app.post("/AdsManage",upload.single("image"),async(req,res)=>{
   try{
   const response= new AdsModel({
-    adsimageUrl:`https://backendapi.modernmorven.com/public/ProductData/${req.file.filename}`
+    adsimageUrl:`https://www.modernmorven.com/ProductData/${req.file.filename}`
   })
   const data=await  response.save();
   if(response){
@@ -1112,7 +1113,7 @@ app.post("/api/draft/Edit",upload.array('images'),async(req,res)=>{
     let videourl;
     let imageUrls;
     if (req.files && req.files.length > 0){
-    imageUrls = req.files.map(file => `https://backendapi.modernmorven.com/public/ProductData/${file.filename}`);
+    imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
