@@ -162,6 +162,11 @@ else{
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
+
+
+
+
+
     const handleSubmission= async()=>{
      try{
       const currentDate= new Date();
@@ -203,8 +208,8 @@ const [alertcolour, setalertcolour] = useState("success");
            
       }
       else{
-        // alert("An error OCCUR UNKNOWN ");
-        console.log(productdata);
+        alert(productdata.message);
+        console.log(productdata.message);
       }
     }
       catch(error){

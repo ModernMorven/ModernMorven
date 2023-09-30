@@ -602,7 +602,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
   }
   }
     catch(error){
-      res.send(`ERROR ${error}`)
+      res.send({message:`${error}`})
     }
   });
   
