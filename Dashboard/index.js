@@ -82,13 +82,14 @@ catch(error){
 
 
 const Adminlogin=require("./models/Adminlogin")
+const Adminlogin=require("./ProductData")
 
 app.use(express.json());
 
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: '../modernmorven/build/ProductData', // Change this to your desired destination
+  destination: './ProductData', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -836,7 +837,7 @@ const AdsModel= new mongoose.model("adsimages",AdsSchema);
 app.post("/AdsManage",upload.single("image"),async(req,res)=>{
   try{
   const response= new AdsModel({
-    adsimageUrl:`https://www.modernmorven.com/ProductData/${req.file.filename}`
+    adsimageUrl:`./ProductData/${req.file.filename}`
   })
   const data=await  response.save();
   if(response){
