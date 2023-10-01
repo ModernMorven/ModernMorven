@@ -69,6 +69,7 @@ position:relative;
    
 }
 .name-main-div h3{
+    font-size: medium;
     font-weight:normal;
     text-wrap: wrap;
 }
