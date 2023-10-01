@@ -1154,7 +1154,7 @@ app.post("/api/draft/Edit",upload.array('images'),async(req,res)=>{
 
   }
     catch(error){
-      res.status(500).send({message:` ${error}`})
+      res.status(500).send({message:`backendapi  ${error}`})
     }
 })
 
