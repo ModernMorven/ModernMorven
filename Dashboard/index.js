@@ -569,7 +569,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
     }
   else{
     let videourl;
-    const imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://www.media.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -782,7 +782,7 @@ app.get("/api/viewall/orders",async(req,res)=>{
 
   try{
     let videourl;
-    const imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
+    const imageUrls = req.files.map(file => `https://www.media.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
@@ -1109,7 +1109,7 @@ app.post("/api/draft/Edit",upload.array('images'),async(req,res)=>{
     let videourl;
     let imageUrls;
     if (req.files && req.files.length > 0){
-    imageUrls = req.files.map(file => `https://www.modernmorven.com/ProductData/${file.filename}`);
+    imageUrls = req.files.map(file => `https://www.media.modernmorven.com/ProductData/${file.filename}`);
     for (let i = 0; i < imageUrls.length; i++) {
       if (imageUrls[i].endsWith(".mp4")) {
        videourl=imageUrls[i];
