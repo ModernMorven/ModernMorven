@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 
 const corsOptions = {
-  origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
+  origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://www.media.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
 };
 
 
@@ -88,7 +88,7 @@ app.use(express.json());
 const ProductModel = require("./models/Addproduct");
 
 const storage = multer.diskStorage({
-  destination: './public/ProductData', // Change this to your desired destination
+  destination: '../media/ProductData/', // Change this to your desired destination
   filename: (req, file, cb) => {
     // Generate a unique filename for each image
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -836,7 +836,7 @@ const AdsModel= new mongoose.model("adsimages",AdsSchema);
 app.post("/AdsManage",upload.single("image"),async(req,res)=>{
   try{
   const response= new AdsModel({
-    adsimageUrl:`https://www.modernmorven.com/ProductData/${req.file.filename}`
+    adsimageUrl:`https://www.media.modernmorven.com/ProductData/${req.file.filename}`
   })
   const data=await  response.save();
   if(response){

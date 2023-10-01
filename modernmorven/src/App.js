@@ -72,7 +72,7 @@ function App() {
   {/* <AdminDashboard/> */}
   {/* <AddProduct/> */}
   {/* <ProductRating/> */}
-  <BrowserRouter>
+  <BrowserRouter basename='/'>
 
                        <Routes>
                          
