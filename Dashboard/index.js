@@ -18,10 +18,15 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
   next();
 });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', "https://127.0.0.1:3000");
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
+  next();
+});
 
 
 const corsOptions = {
-  origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://www.media.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
+  origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://www.media.modernmorven.com","https://modernmorven.com", "https://185.201.9.59","https://127.0.0.1:3000"],
 };
 
 
