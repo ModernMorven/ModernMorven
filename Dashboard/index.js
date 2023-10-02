@@ -10,12 +10,12 @@ app.use(express.json());
 const cors = require("cors");
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', "https://www.modernmorven.com");
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,Accept, application/json');
   next();
 });
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', "https://185.201.9.59");
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type,FormData, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, application/json');
   next();
 });
 

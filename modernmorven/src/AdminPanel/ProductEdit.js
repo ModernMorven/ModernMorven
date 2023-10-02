@@ -258,6 +258,10 @@ const handleSubmission = async (e) => {
     const addproduct = await fetch("https://backendapi.modernmorven.com/api/draft/Edit", {
       method: "POST",
       body: ProductForm,
+      headers:{
+        "Accept": "application/json",
+     "Content-Type": "multipart/form-data",
+      }
     });
     const productdata = await addproduct.json();
     if (addproduct.ok &&productdata.success) {
