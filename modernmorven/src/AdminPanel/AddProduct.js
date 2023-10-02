@@ -215,7 +215,9 @@ const [alertcolour, setalertcolour] = useState("success");
       }
     }
       catch(error){
-        alert(`error ${error}`)
+        setalertmessage(`${error}`)
+        setalertcolour("dabger");
+
       }
      
 
