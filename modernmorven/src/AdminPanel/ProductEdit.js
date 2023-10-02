@@ -219,8 +219,7 @@ catch(error){
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-const handleSubmission = async (e) => {
-  e.preventDefault();
+const handleSubmission = async () => {
   try {
     const currentDate= new Date();
       const options = {
