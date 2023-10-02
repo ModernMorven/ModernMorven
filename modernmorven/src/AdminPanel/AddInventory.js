@@ -174,24 +174,31 @@ const [alertcolour, setalertcolour] = useState("success");
         }
      }) 
       const  productdata=await addproduct.json();
-      if(addproduct.ok && productdata.success){
-    alert("upload Successfully 😍😍😍😍😍😍")
-    setalertmessage("upload Successfully 😍😍😍😍😍😍")
-    setalertcolour("success");
-      }
-      else{
-        // alert("An error OCCUR UNKNOWN ");
-        console.log(productdata.message);
-        setalertmessage(`Error Occured ${productdata.message}`);
+      if (addproduct.ok) {
+        const productdata = await addproduct.json();
+        if (productdata.success) {
+          alert("upload Successfully 😍😍😍😍😍😍")
+          setalertmessage("upload Successfully 😍😍😍😍😍😍")
+          setalertcolour("success");
+        } else {
+          console.log(productdata.message);
+          setalertmessage(`Error Occurred: ${productdata.message}`);
+          setalertcolour("danger");
+        }
+      } else {
+        // Handle non-200 status codes (e.g., server errors)
+        console.log(`HTTP error: ${addproduct.status}`);
+        setalertmessage(`HTTP error: ${addproduct.status}`);
         setalertcolour("danger");
       }
+    } catch (error) {
+      console.error(`Error: ${error}`);
+      setalertmessage(`Error: ${error}`);
+      setalertcolour("danger");
     }
-      catch(error){
-        alert(`error ${error}`)
-      }
-     
 
   }
+
 
   return (
     <>

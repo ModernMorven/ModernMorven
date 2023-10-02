@@ -805,12 +805,14 @@ app.get("/api/viewall/orders",async(req,res)=>{
       totalitems:req.body.totalitems,
   });
   
+ 
    const data = await Inventory.save();
-     res.status(200).send({success:`${data}`});
+   res.status(200).json({ success: true, message: "Inventory added successfully", data });
   
   }
     catch(error){
-      res.status(500).send( {message:`ERROR ${error}`});
+      console.error(error);
+      res.status(500).json({ success: false, message: `Internal server error: ${error.message}` });
     }
   });
 app.get("/showInventory",async(req,res)=>{
