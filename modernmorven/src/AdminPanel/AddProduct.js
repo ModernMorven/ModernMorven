@@ -14,7 +14,6 @@ function AddProduct() {
       discountprice: 0,
       brandname: '',
       availability: true,
-      lastupdate: new Date(),
       discription: '',
       warrenty: '',
       insidebox: '',
@@ -120,18 +119,7 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
    
   };
 
-  function formatDateTime(dateTime) {
-    const options = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      timeZone: 'Asia/Karachi',
-    };
-    return new Date(dateTime).toLocaleString('en-US', options);
-  }
+ 
  
 // ********************************************************
 
@@ -164,7 +152,18 @@ else{
 const [alertcolour, setalertcolour] = useState("success");
     const handleSubmission= async()=>{
      try{
-     
+      const mydate= new Date();
+      const options={
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      timeZone: 'Asia/Karachi',
+    };
+   const UpdateDate= new Date(mydate).toLocaleString('en-US', options);
+  
             const ProductForm=new FormData();
              ProductForm.append("_id",formData._id)
              ProductForm.append("title",formData.title);
@@ -173,7 +172,7 @@ const [alertcolour, setalertcolour] = useState("success");
              ProductForm.append("brandname",formData.brandname);
              ProductForm.append("status",status);
              ProductForm.append("availability",formData.availability);
-             ProductForm.append("lastupdate","12-step-2023");
+             ProductForm.append("lastupdate",UpdateDate);
              ProductForm.append("discription",formData.discription);
              ProductForm.append("warrenty",formData.warrenty);
              ProductForm.append("insidebox", formData.insidebox);
