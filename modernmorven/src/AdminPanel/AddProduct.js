@@ -120,7 +120,18 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
    
   };
 
-  
+  function formatDateTime(dateTime) {
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      timeZone: 'Asia/Karachi',
+    };
+    return new Date(dateTime).toLocaleString('en-US', options);
+  }
  
 // ********************************************************
 
@@ -137,14 +148,12 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
  
   //  Save the But But not Show on  Main Article 
   const saveDraft=()=>{
-    try{
-      setstatus("DRAFT")
-
-      handleSubmission();
-    }
-   
-catch(error){
-  alert(`Status ERROR ${error}` )
+    setstatus("DRAFT")
+if(status==="DRAFT"){
+  handleSubmission();
+}
+else{
+  alert("Status ERROR")
 }
 
   
@@ -153,24 +162,8 @@ catch(error){
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-
-
-
-
-
     const handleSubmission= async()=>{
      try{
-      const currentDate= new Date();
-      const options = {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        timeZone: 'Asia/Karachi',
-      };
-      const formattedDateTime= new Date(currentDate).toLocaleString('en-US', options);
      
             const ProductForm=new FormData();
              ProductForm.append("_id",formData._id)
@@ -180,7 +173,7 @@ const [alertcolour, setalertcolour] = useState("success");
              ProductForm.append("brandname",formData.brandname);
              ProductForm.append("status",status);
              ProductForm.append("availability",formData.availability);
-             ProductForm.append("lastupdate",formattedDateTime);
+             ProductForm.append("lastupdate","12-step-2023");
              ProductForm.append("discription",formData.discription);
              ProductForm.append("warrenty",formData.warrenty);
              ProductForm.append("insidebox", formData.insidebox);
@@ -191,15 +184,11 @@ const [alertcolour, setalertcolour] = useState("success");
               ProductForm.append('images', selectedFiles[i]);
             }
              ProductForm.append("deliverycharges",formData.deliverycharges);
-    const addproduct= await fetch("https://backendapi.modernmorven.com/Addproduct",{
+    const addproduct= await fetch("https://www.backendapi.modernmorven.com/Addproduct",{
         method:"POST",
         body: ProductForm,
-        headers:{
-          "Accept": "application/json",
-       "Content-Type": "multipart/form-data",
-        }
      }) 
-      const  productdata= await addproduct.json();
+      const  productdata=await addproduct.json();
       if(addproduct.ok){
               if( productdata.verification )
               {
@@ -213,18 +202,20 @@ const [alertcolour, setalertcolour] = useState("success");
            
       }
       else{
-        alert(productdata.message);
-        console.log(productdata.message);
+        // alert("An error OCCUR UNKNOWN ");
+        console.log(await addproduct.text());
       }
     }
       catch(error){
-        setalertmessage(`${error}`)
-        setalertcolour("dabger");
-
+        alert(`error ${error}`)
       }
      
 
   }
+console.log(formData)
+console.log(myVarients);
+console.log(productsizes);
+console.log(selectedFiles);
 
   return (
     <>
