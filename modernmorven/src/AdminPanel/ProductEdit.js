@@ -187,18 +187,7 @@ const [selectedUrls, setSelectedUrls] = useState([]);
    
   };
 
-  function formatDateTime(dateTime) {
-    const options = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      timeZone: 'Asia/Karachi',
-    };
-    return new Date(dateTime).toLocaleString('en-US', options);
-  }
+  
  
 // ********************************************************
 
@@ -233,8 +222,17 @@ const [alertcolour, setalertcolour] = useState("success");
 const handleSubmission = async (e) => {
   e.preventDefault();
   try {
-    const currentDate = new Date();
-    const formattedDateTime = formatDateTime(currentDate);
+    const currentDate= new Date();
+      const options = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZone: 'Asia/Karachi',
+      };
+      const formattedDateTime= new Date(currentDate).toLocaleString('en-US', options);
     const ProductForm = new FormData();
     ProductForm.append("_id", formData._id);
     ProductForm.append("title", formData.title);

@@ -116,18 +116,7 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
    
   };
 
-  function formatDateTime(dateTime) {
-    const options = {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      timeZone: 'Asia/Karachi',
-    };
-    return new Date(dateTime).toLocaleString('en-US', options);
-  }
+
  
 // ********************************************************
 
@@ -147,8 +136,17 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
 const [alertcolour, setalertcolour] = useState("success");
     const handleSubmission= async()=>{
      try{
-            const currentDate= new Date();
-            const formattedDateTime = formatDateTime(currentDate);
+      const currentDate= new Date();
+      const options = {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZone: 'Asia/Karachi',
+      };
+      const formattedDateTime= new Date(currentDate).toLocaleString('en-US', options);
             const ProductForm=new FormData();
              ProductForm.append("inventorytitle",formData.Inventorytitle);
              ProductForm.append("producttitle",formData.producttitle);
