@@ -170,15 +170,15 @@ const [alertcolour, setalertcolour] = useState("success");
         body: ProductForm,
      }) 
       const  productdata=await addproduct.json();
-      if(addproduct.ok){
+      if(addproduct.ok && productdata.success){
     alert("upload Successfully 😍😍😍😍😍😍")
     setalertmessage("upload Successfully 😍😍😍😍😍😍")
     setalertcolour("success");
       }
       else{
         // alert("An error OCCUR UNKNOWN ");
-        console.log(productdata);
-        setalertmessage(`Error Occured ${productdata}`);
+        console.log(productdata.message);
+        setalertmessage(`Error Occured ${productdata.message}`);
         setalertcolour("danger");
       }
     }

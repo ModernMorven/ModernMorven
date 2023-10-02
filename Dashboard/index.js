@@ -570,7 +570,7 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
       _id: req.body._id
     })
     if(search){
-      res.send({verification :"ERROR"})
+      res.status(200).send({verification :"ERROR"})
     }
   else{
     let videourl;
@@ -602,12 +602,12 @@ app.post("/Addproduct", upload.array("images"), async (req, res) => {
    
   });
   
-    await product.save();
-     res.send({success:"TRUE"})
+   const data = await product.save();
+     res.status(200).send({success:"TRUE"})
   }
   }
     catch(error){
-      res.send({message:`${error}`})
+      res.status(500).send({message:`Error from backend ${error}`})
     }
   });
   
@@ -810,12 +810,12 @@ app.get("/api/viewall/orders",async(req,res)=>{
       totalitems:req.body.totalitems,
   });
   
-    await Inventory.save();
-     res.send({success:"TRUE"})
+   const data = await Inventory.save();
+     res.status(200).send({success:`${data}`});
   
   }
     catch(error){
-      res.send(`ERROR ${error}`)
+      res.status(500).send( {message:`ERROR ${error}`});
     }
   });
 app.get("/showInventory",async(req,res)=>{

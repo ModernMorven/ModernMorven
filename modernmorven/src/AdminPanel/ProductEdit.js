@@ -41,7 +41,7 @@ const [displayvideo, setdisplayvideo] = useState('');
         })
         const data= await response.json();
         if(response.ok &&!data.message){
-          console.log(data)
+          // console.log(data.success)
           if (data._id) {
             setFormData({
               _id: data._id,
@@ -215,16 +215,16 @@ const [selectedUrls, setSelectedUrls] = useState([]);
   const [status, setstatus] = useState("LIVE");
   //  Save the But But not Show on  Main Article 
   const saveDraft=()=>{
-    setstatus("DRAFT")
-if(status==="DRAFT"){
-  handleSubmission();
-}
-else{
-  alert("Status ERROR")
+    try{
+      setstatus("DRAFT")
+
+      handleSubmission();
+    }
+   
+catch(error){
+  alert(`Status ERROR ${error}` )
 }
 
-  
-  }
 
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
@@ -300,7 +300,6 @@ const handleSubmission = async (e) => {
 
   }
   const handlevideodelete=async(index)=>{
-   console.log("hello")
     try {
       const response=await fetch("https://backendapi.modernmorven.com/api/edit/product/delete/videourl",{
         method:"post",

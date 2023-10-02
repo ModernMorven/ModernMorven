@@ -148,12 +148,14 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
  
   //  Save the But But not Show on  Main Article 
   const saveDraft=()=>{
-    setstatus("DRAFT")
-if(status==="DRAFT"){
-  handleSubmission();
-}
-else{
-  alert("Status ERROR")
+    try{
+      setstatus("DRAFT")
+
+      handleSubmission();
+    }
+   
+catch(error){
+  alert(`Status ERROR ${error}` )
 }
 
   
@@ -194,7 +196,7 @@ const [alertcolour, setalertcolour] = useState("success");
         method:"POST",
         body: ProductForm,
      }) 
-      const  productdata=await addproduct.json();
+      const  productdata= await addproduct.json();
       if(addproduct.ok){
               if( productdata.verification )
               {
