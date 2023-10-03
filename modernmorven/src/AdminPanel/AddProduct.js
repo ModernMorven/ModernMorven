@@ -187,6 +187,7 @@ const [alertcolour, setalertcolour] = useState("success");
         method:"POST",
         body: ProductForm,
      }) 
+    
       const  productdata=await addproduct.json();
       if(addproduct.ok){
               if( productdata.verification )
@@ -201,12 +202,16 @@ const [alertcolour, setalertcolour] = useState("success");
            
       }
       else{
-        // alert("An error OCCUR UNKNOWN ");
-        console.log(await addproduct.text());
+        const errorMessage = await addproduct.json();
+      console.error('Server Error:', errorMessage);
+      setalertmessage('An error occurred on the server.');
+      setalertcolour('danger');
       }
     }
       catch(error){
-        alert(`error ${error}`)
+        console.error('Client-side Error:', error);
+        setalertmessage(`Client-side error: ${error.message}`);
+        setalertcolour('danger');
       }
      
 
