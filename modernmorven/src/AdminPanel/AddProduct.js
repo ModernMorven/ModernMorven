@@ -142,7 +142,7 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
 }
 
   
-  }
+  
 
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
