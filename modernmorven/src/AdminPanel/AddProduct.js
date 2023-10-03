@@ -137,11 +137,8 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
   //  Save the But But not Show on  Main Article 
   const saveDraft=()=>{
     setstatus("DRAFT")
-if(status==="DRAFT"){
+
   handleSubmission();
-}
-else{
-  alert("Status ERROR")
 }
 
   
