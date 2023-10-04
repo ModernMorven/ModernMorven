@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const path = require('path');
 const port = 8000
 require("./DataBase/Connection");
+
 const app = express();
 app.use(express.json());
 
@@ -20,6 +22,7 @@ app.use((req, res, next) => {
 });
 
 
+
 const corsOptions = {
   origin: [ "https://modernmorven.com","https://www.modernmorven.com","https://www.media.modernmorven.com","https://modernmorven.com", "https://185.201.9.59"],
 };
@@ -27,6 +30,23 @@ const corsOptions = {
 
 app.use(cors(corsOptions)); // Use this middleware to handle CORS
 app.options("*", cors(corsOptions));
+
+
+app.use(express.static(path.join(__dirname, '../modernmorven/build')));
+app.get('*', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../modernmorven/build', 'index.html'));
+  } catch (error) {
+    console.error('Error serving index.html:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+
+
+
 
 const UserModel = require("./models/Signup");
 

@@ -1,9 +1,7 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /ModernMorven/modernmorven/build/
     RewriteRule ^index\.html$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /ModernMorven/modernmorven/build/index.html [L,QSA]
+    RewriteRule ^(.*)$ /modernmorven/build/index.html [L,QSA]
 </IfModule>
-
