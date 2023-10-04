@@ -32,15 +32,15 @@ app.use(cors(corsOptions)); // Use this middleware to handle CORS
 app.options("*", cors(corsOptions));
 
 
-app.use(express.static(path.join(__dirname, '../modernmorven/build')));
-app.get('*', (req, res) => {
-  try {
-    res.sendFile(path.join(__dirname, '../modernmorven/build', 'index.html'));
-  } catch (error) {
-    console.error('Error serving index.html:', error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+// app.use(express.static(path.join(__dirname, '../modernmorven/build')));
+// app.get('*', (req, res) => {
+//   try {
+//     res.sendFile(path.join(__dirname, '../modernmorven/build', 'index.html'));
+//   } catch (error) {
+//     console.error('Error serving index.html:', error);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 
 
 
