@@ -1,7 +1,6 @@
 <IfModule mod_rewrite.c>
+    Options -MultiViews
     RewriteEngine On
-    RewriteRule ^index\.html$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /modernmorven/build/index.html [L,QSA]
+    RewriteRule ^ index.html [QSA,L]
 </IfModule>
