@@ -166,12 +166,9 @@ const [alertcolour, setalertcolour] = useState("success");
     const addproduct= await fetch("https://backendapi.modernmorven.com/Addinventory",{
         method:"POST",
         body: ProductForm,
-        headers:{
-          "Accept": "application/json",
-       "Content-Type": "multipart/form-data",
-        }
+       
      }) 
-      const  productdata=await addproduct.json();
+  
       if (addproduct.ok) {
         const productdata = await addproduct.json();
         if (productdata.success) {

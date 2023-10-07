@@ -50,38 +50,16 @@ import CPRoutes from './components/CPRoutes';
 
 function App() {
 
-  // const [localStorageCleared, setLocalStorageCleared] = useState(false);
-
-  // useEffect(() => {
-  //   window.addEventListener("beforeunload", (event) => {
-  //     if (event.type === "beforeunload") {
-  //       setLocalStorageCleared(true);
-  //     }
-  //   });
-
-  //   setTimeout(() => {
-  //     if (!localStorageCleared) {
-  //       localStorage.removeItem('Admin');
-  //     }
-  //   }, 60000);
-  // }, []);
   return (
     <>
   
 
-  {/* <AdminDashboard/> */}
-  {/* <AddProduct/> */}
-  {/* <ProductRating/> */}
+ 
   <BrowserRouter basename='/'>
 
                        <Routes>
                          
-                        {/* <Route path='/' element={<MainArtical/>}> </Route> */}
-                      
-                      {/* AdminPannel */}
-
-                
-                      {/* <Route exact path='/' element={<UploadImage/>}> </Route> */}
+                     
                       <Route  path='/AdminLogin' element={<AdminLogin/>}> </Route>
                       <Route exact path='/AdminForgetPassword' element={<AdminForgetPassword/>}> </Route>
                         <Route  element={<PrivateRoutes/>}> 

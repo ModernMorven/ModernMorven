@@ -68,10 +68,6 @@ function AdsManagement() {
       const response= await fetch("https://backendapi.modernmorven.com/AdsManage",{
         method:"POST" ,
         body : formdata,
-        headers:{
-          "Accept": "application/json",
-       "Content-Type": "multipart/form-data",
-        }
       });
       const data= await response.json();
       if(response.ok &&!data.result)

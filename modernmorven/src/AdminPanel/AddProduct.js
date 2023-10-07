@@ -20,7 +20,7 @@ function AddProduct() {
       deliverycharges: 0,
     });
 
-const [status, setstatus] = useState("LIVE");
+const [status, setstatus] = useState('');
    
  
 // block 1 image 1 
@@ -135,12 +135,16 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
   ));
  
   //  Save the But But not Show on  Main Article 
-  const saveDraft=()=>{
-    setstatus("DRAFT")
-
-  handleSubmission();
-}
-
+  const saveDraft = () => {
+    setstatus("DRAFT");
+    if (status === "DRAFT") {
+      handleSubmission();
+    }
+    else{
+      setalertmessage("Draft Doesn't Set Correctly");
+      setalertcolour("danger");
+    }
+  };
   
   
 
@@ -160,7 +164,8 @@ const [alertcolour, setalertcolour] = useState("success");
       timeZone: 'Asia/Karachi',
     };
    const UpdateDate= new Date(mydate).toLocaleString('en-US', options);
-  
+   console.log(UpdateDate);
+   setstatus("DRAFT");
             const ProductForm=new FormData();
              ProductForm.append("_id",formData._id)
              ProductForm.append("title",formData.title);
