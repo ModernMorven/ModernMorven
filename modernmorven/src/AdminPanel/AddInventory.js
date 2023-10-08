@@ -134,7 +134,8 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-    const handleSubmission= async()=>{
+    const handleSubmission= async(e)=>{
+      e.preventDefault();
      try{
       const currentDate= new Date();
       const options = {
@@ -205,7 +206,7 @@ const [alertcolour, setalertcolour] = useState("success");
 </div>
 }
         <h1>Add Inventory</h1>
-          <form className="add_product_form" onSubmit={handleSubmission} >
+          <form className="add_product_form"  >
             <p>Minimum 3 Pictures upload</p>
          <div className="imageuplaording-section">
                 <div className="admin-sidemainimages "  >
@@ -346,7 +347,7 @@ const [alertcolour, setalertcolour] = useState("success");
           <div className="submitoptions">
        
        
-            <button type='submit' >Save</button>
+            <button type='submit' onClick={handleSubmission}>Save</button>
           </div>
 
 

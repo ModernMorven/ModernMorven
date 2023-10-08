@@ -165,7 +165,7 @@ const [alertcolour, setalertcolour] = useState("success");
     };
    const UpdateDate= new Date(mydate).toLocaleString('en-US', options);
    console.log(UpdateDate);
-   setstatus("DRAFT");
+   setstatus("LIVE");
             const ProductForm=new FormData();
              ProductForm.append("_id",formData._id)
              ProductForm.append("title",formData.title);
@@ -233,7 +233,7 @@ console.log(selectedFiles);
 </div>
 }
         <h1>Add New Product</h1>
-          <form className="add_product_form" onSubmit={handleSubmission} >
+          <form className="add_product_form"  >
             <p>Minimum 3 Pictures upload</p>
          <div className="imageuplaording-section">
                 <div className="admin-sidemainimages "  >
@@ -377,7 +377,7 @@ console.log(selectedFiles);
           <div className="submitoptions">
           <button type='reset'onClick={saveDraft}>Save</button>
        
-            <button type='submit' >Save and Live</button>
+            <button type='submit' onClick={handleSubmission} >Save and Live</button>
           </div>
 
 
