@@ -253,7 +253,7 @@ status="LIVE";
            ProductForm.append('images', selectedFiles[i]);
          }
           ProductForm.append("deliverycharges",formData.deliverycharges);
- const addproduct= await fetch("https://backendapi.modernmorven.com/Addproduct",{
+ const addproduct= await fetch("https://backendapi.modernmorven.com/api/draft/Edit",{
      method:"POST",
      body: ProductForm,
   }) 
