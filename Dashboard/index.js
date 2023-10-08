@@ -1146,7 +1146,7 @@ app.post("/api/draft/Edit",upload.array('images'),async(req,res)=>{
        search.discountprice= req.body.discountprice,
        search.brandname= req.body.brandname,
        search.status= req.body.status,
-       search.availability= req.body.availability,
+   
        search.lastupdate= req.body.lastupdate,
        search.discription= req.body.discription,
        search.warrenty= req.body.warrenty,

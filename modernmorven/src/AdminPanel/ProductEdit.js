@@ -261,14 +261,14 @@ status="LIVE";
   
    if(addproduct.ok ){
      const  productdata=await addproduct.json();
-           if( productdata.verification )
+           if( productdata.success )
            {
-             setalertmessage("SKU already exists Try again 😢😢😢😢 ");
-             setalertcolour("danger");
-           }
-         else{
            setalertmessage("upload Successfully 😍😍😍😍😍😍")
            setalertcolour("success");
+         }
+         else{
+          setalertmessage(`${productdata.message}`)
+          setalertcolour("danger");
          }
         
    }
