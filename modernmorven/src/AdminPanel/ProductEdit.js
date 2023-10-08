@@ -201,80 +201,92 @@ const [selectedUrls, setSelectedUrls] = useState([]);
   const sizeinputTag = Array(inputCountsizes).fill(null).map((_, index) => (
     <input   className="dynamic-inputs" type="text"  placeholder="Sizes"  key={index}  value={productsizes[index]}  onChange={(e) => sizesHandle(index, e.target.value)} required/>
   ));
-  const [status, setstatus] = useState("LIVE");
+  let status ='';
   //  Save the But But not Show on  Main Article 
-  const saveDraft=()=>{
-    try{
-      setstatus("DRAFT")
-
+  const saveDraft = () => {
+    status="DRAFT";
+    if (status === "DRAFT") {
       handleSubmission();
     }
-   
-catch(error){
-  alert(`Status ERROR ${error}` )
-}
-  }
+    else{
+      setalertmessage("Draft Doesn't Set Correctly");
+      setalertcolour("danger");
+    }
+  };
 
 
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-const handleSubmission = async () => {
-  try {
-    const currentDate= new Date();
-      const options = {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        timeZone: 'Asia/Karachi',
-      };
-      const formattedDateTime= new Date(currentDate).toLocaleString('en-US', options);
-    const ProductForm = new FormData();
-    ProductForm.append("_id", formData._id);
-    ProductForm.append("title", formData.title);
-    ProductForm.append("price", formData.price);
-    ProductForm.append("discountprice", formData.discountprice);
-    ProductForm.append("brandname", formData.brandname);
-    ProductForm.append("status", status);
-    ProductForm.append("availability", true);
-    ProductForm.append("lastupdate", formattedDateTime);
-    ProductForm.append("discription", formData.discription);
-    ProductForm.append("warrenty", formData.warrenty);
-    ProductForm.append("insidebox", formData.insidebox);
-    ProductForm.append("varient", myVarients);
-    ProductForm.append("sizes", productsizes);
-
-    for (let i = 0; i < selectedFiles.length; i++) {
-      ProductForm.append("images", selectedFiles[i]);
-    }
-    ProductForm.append("deliverycharges", formData.deliverycharges);
-    console.log(ProductForm)
-    const addproduct = await fetch("https://backendapi.modernmorven.com/api/draft/Edit", {
-      method: "POST",
-      body: ProductForm,
-      headers:{
-        "Accept": "application/json",
-     "Content-Type": "multipart/form-data",
-      }
-    });
-    const productdata = await addproduct.json();
-    if (addproduct.ok &&productdata.success) {
+const handleSubmission= async()=>{
      
-        setalertmessage("Upload Successfully 😍😍😍😍😍😍");
-        setalertcolour("success");
-      }
-     else {
-      setalertmessage(productdata.message);
-      setalertcolour("danger");
-    }
-  } catch (error) {
-    setalertmessage(error.message || "An error occurred. Please try again.");
-    setalertcolour("danger");
-  }
-};
+  try{
+   const mydate= new Date();
+   const options={
+   day: 'numeric',
+   month: 'long',
+   year: 'numeric',
+   hour: 'numeric',
+   minute: 'numeric',
+   second: 'numeric',
+   timeZone: 'Asia/Karachi',
+ };
+const UpdateDate= new Date(mydate).toLocaleString('en-US', options);
+
+status="LIVE";
+         const ProductForm=new FormData();
+          ProductForm.append("_id",formData._id)
+          ProductForm.append("title",formData.title);
+          ProductForm.append("price",formData.price);
+          ProductForm.append("discountprice",formData.discountprice);
+          ProductForm.append("brandname",formData.brandname);
+          ProductForm.append("status",status);
+          ProductForm.append("availability",formData.availability);
+          ProductForm.append("lastupdate",UpdateDate);
+          ProductForm.append("discription",formData.discription);
+          ProductForm.append("warrenty",formData.warrenty);
+          ProductForm.append("insidebox", formData.insidebox);
+          ProductForm.append("varient", myVarients);
+          ProductForm.append("sizes",productsizes);
+        
+          for (let i = 0; i < selectedFiles.length; i++) {
+           ProductForm.append('images', selectedFiles[i]);
+         }
+          ProductForm.append("deliverycharges",formData.deliverycharges);
+ const addproduct= await fetch("https://backendapi.modernmorven.com/Addproduct",{
+     method:"POST",
+     body: ProductForm,
+  }) 
+ 
+  
+   if(addproduct.ok ){
+     const  productdata=await addproduct.json();
+           if( productdata.verification )
+           {
+             setalertmessage("SKU already exists Try again 😢😢😢😢 ");
+             setalertcolour("danger");
+           }
+         else{
+           setalertmessage("upload Successfully 😍😍😍😍😍😍")
+           setalertcolour("success");
+         }
+        
+   }
+   else{
+     const errorMessage = await addproduct.json();
+   console.error('Server Error:', errorMessage);
+   setalertmessage('An error occurred on the server.');
+   setalertcolour('danger');
+   }
+ }
+   catch(error){
+     console.error('Client-side Error:', error);
+     setalertmessage(`Client-side error: ${error}`);
+     setalertcolour('danger');
+   }
+  
+
+}
 
   const handleimagesdelete=async(index)=>{
    console.log("hello")

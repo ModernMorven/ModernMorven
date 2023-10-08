@@ -151,8 +151,8 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-    const handleSubmission= async(e)=>{
-      e.preventDefault();
+    const handleSubmission= async()=>{
+     
      try{
       const mydate= new Date();
       const options={
