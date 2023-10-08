@@ -20,7 +20,7 @@ function AddProduct() {
       deliverycharges: 0,
     });
 
-const [status, setstatus] = useState('');
+let status='';
    
  
 // block 1 image 1 
@@ -136,7 +136,7 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
  
   //  Save the But But not Show on  Main Article 
   const saveDraft = () => {
-    setstatus("DRAFT");
+    status="DRAFT";
     if (status === "DRAFT") {
       handleSubmission();
     }
@@ -151,7 +151,8 @@ const [myVarients, setMyVarients] = useState(Array(inputCount).fill(''));
     // ***********************************************************************************************************************************
     const [alertmessage, setalertmessage] = useState('')
 const [alertcolour, setalertcolour] = useState("success");
-    const handleSubmission= async()=>{
+    const handleSubmission= async(e)=>{
+      e.preventDefault();
      try{
       const mydate= new Date();
       const options={
@@ -164,8 +165,8 @@ const [alertcolour, setalertcolour] = useState("success");
       timeZone: 'Asia/Karachi',
     };
    const UpdateDate= new Date(mydate).toLocaleString('en-US', options);
-   console.log(UpdateDate);
-   setstatus("LIVE");
+  
+   status="LIVE";
             const ProductForm=new FormData();
              ProductForm.append("_id",formData._id)
              ProductForm.append("title",formData.title);
@@ -185,13 +186,14 @@ const [alertcolour, setalertcolour] = useState("success");
               ProductForm.append('images', selectedFiles[i]);
             }
              ProductForm.append("deliverycharges",formData.deliverycharges);
-    const addproduct= await fetch("https://www.backendapi.modernmorven.com/Addproduct",{
+    const addproduct= await fetch("https://backendapi.modernmorven.com/Addproduct",{
         method:"POST",
         body: ProductForm,
      }) 
     
-      const  productdata=await addproduct.json();
-      if(addproduct.ok){
+     
+      if(addproduct.ok ){
+        const  productdata=await addproduct.json();
               if( productdata.verification )
               {
                 setalertmessage("SKU already exists Try again 😢😢😢😢 ");
@@ -212,7 +214,7 @@ const [alertcolour, setalertcolour] = useState("success");
     }
       catch(error){
         console.error('Client-side Error:', error);
-        setalertmessage(`Client-side error: ${error.message}`);
+        setalertmessage(`Client-side error: ${error}`);
         setalertcolour('danger');
       }
      
