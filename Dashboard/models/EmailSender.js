@@ -2,11 +2,11 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
-  service: process.env.HOST,
-  port: process.env.PORT,
+  service: "gmail",
+  port: 587,
   auth: {
-    user: process.env.USER,
-    pass: process.env.PASS,
+    user: "modernmorven@gmail.com",
+    pass: "myzf lbsc grkk rcdz",
   },
    
 });
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 const sendPasswordResetEmail=async(email, Code)=> {
     try{
   const message = {
-    from: process.env.SMTP_PASS,
+    from:  "modernmorven@gmail.com",
     to: email,
     subject: 'Password Reset OTP',
     html: `
