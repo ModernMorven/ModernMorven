@@ -352,7 +352,7 @@ status="LIVE";
        </div>
         }
         <h1>Edit Your Product</h1>
-          <form className="add_product_form" onSubmit={handleSubmission} >
+          <form className="add_product_form"  >
             <p>Minimum 3 Pictures upload</p>
          <div className="imageuplaording-section">
                 <div className="admin-sidemainimages "  >
@@ -545,7 +545,7 @@ status="LIVE";
           <div className="submitoptions">
           <button type='reset'onClick={saveDraft}>Save</button>
        
-            <button type='submit' >Save and Live</button>
+            <button type='submit' onClick={handleSubmission} >Save and Live</button>
           </div>
 
 
