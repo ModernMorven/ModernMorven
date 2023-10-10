@@ -40,7 +40,7 @@ const handleSubmit=async(event)=>{
             {
             
               const userDataToStore = { id: data._id, name: data.name };
-              localStorage.setItem("user", JSON.stringify(userDataToStore));
+              localStorage.setItem("user", userDataToStore);
               alert('Registration Successfull');
               nevigate("/MainArtical")
             }
