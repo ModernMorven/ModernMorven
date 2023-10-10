@@ -38,8 +38,9 @@ const handleSubmit=async(event)=>{
             const data=await response.json();
             if(response.ok && !data.message)
             {
-              const result= await data.text();
-              localStorage.setItem("user",result);
+            
+              const userDataToStore = { id: data._id, name: data.name };
+              localStorage.setItem("user", JSON.stringify(userDataToStore));
               alert('Registration Successfull');
               nevigate("/MainArtical")
             }
