@@ -90,14 +90,14 @@ html,body{
     .section-container{
         width:100%;
         height:100%;
-        
         padding-right: 50px;
         justify-content: space-evenly;
         position: relative;
         color:aliceblue;
         display: flex;
         justify-content:left;
-        padding-left: 10px;
+        padding-left: 3px;
+        padding-right: 2px;
         border-right: 5px solid #FFBD59;
   
         text-decoration: none;
