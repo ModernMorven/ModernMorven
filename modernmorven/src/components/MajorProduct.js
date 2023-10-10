@@ -195,7 +195,8 @@ const ADDtoCart=async()=>{
                     
                       if(resp.ok){
                         const data= await resp.json();
-                        setalertmsg(`${data.message}`);
+
+                        alert(`${data.message}`);
                         setalertColor("success")
                       }
                       else{
@@ -268,11 +269,11 @@ const findtotalrating=async()=>{
 setTimeout(() => {
   
   setalertmsg('')
- }, 4000);
+ }, 6000);
 setTimeout(() => {
   setCheckMessage('');
 
- }, 3000);
+ }, 6000);
 
   return (
     <>
@@ -401,7 +402,7 @@ setTimeout(() => {
 
                             {/* for display right side text  */}
                                 <div className="product_status_main_container_right_side_container">
-                                    <p>4 to 6 Days</p>
+                                    <p>2 to 3 working Days</p>
                                     <h5 className={majorlist.availability ? "text-success" : "text-danger"}>
                                      {majorlist.availability ? "In Stock" : "Not Available"}
                                       </h5>
