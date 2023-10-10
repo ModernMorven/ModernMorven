@@ -82,7 +82,6 @@ html,body{
         width:100%;
         height:100%;
         background-color:#0f1635;
-      
         justify-content: space-evenly;
         align-items: center;
         position:relative;
@@ -90,16 +89,15 @@ html,body{
     .section-container{
         width:100%;
         height:100%;
-        padding-right: 50px;
+        padding-right: 20px;
         justify-content: space-evenly;
         position: relative;
         color:aliceblue;
         display: flex;
         justify-content:left;
         padding-left: 3px;
-        padding-right: 2px;
+       
         border-right: 5px solid #FFBD59;
-  
         text-decoration: none;
     }
 }
