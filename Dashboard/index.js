@@ -61,7 +61,7 @@ app.post('/customersignup', async(req, res) => {
      const response=new UserModel({_id:req.body.mail,name:req.body.name,password:req.body.passhash});
      const data= await response.save();
      if(data){
-      res.status(200).send({success:data}); // Replace this with your desired response
+      res.status(200).send(data); // Replace this with your desired response
      }
      else{
       res.status(404).send({message:"ERROR WHILE POSTING"})
