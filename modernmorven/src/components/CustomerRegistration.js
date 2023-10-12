@@ -38,7 +38,7 @@ const handleSubmit=async(event)=>{
             let data=await response.json();
             if(response.ok && !data.message)
             {
-             data=await data.text(); 
+            
               if (data) {
                 console.log(data)
                 localStorage.setItem("user",data);
