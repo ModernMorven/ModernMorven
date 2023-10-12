@@ -35,12 +35,18 @@ const handleSubmit=async(event)=>{
               }
     
             })
-            const data=await response.json();
+            let data=await response.json();
             if(response.ok && !data.message)
             {
-            localStorage.setItem("user",data);
-              alert('Registration Successfull');
-              nevigate("/MainArtical")
+             data=await data.text(); 
+              if (data) {
+                console.log(data)
+                localStorage.setItem("user",data);
+                alert('Registration Successfull');
+                nevigate("/MainArtical")
+            } else {
+                console.log('Error: The data variable is null or undefined');
+            }
             }
             else{
               seterrormessage(data.message);
