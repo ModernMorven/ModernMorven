@@ -269,11 +269,9 @@ const findtotalrating=async()=>{
 setTimeout(() => {
   
   setalertmsg('')
- }, 6000);
-setTimeout(() => {
-  setCheckMessage('');
+   setCheckMessage('');
+ }, 9000);
 
- }, 6000);
 
   return (
     <>
