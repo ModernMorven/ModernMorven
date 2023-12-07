@@ -26,7 +26,7 @@ const [alertmsg, setalertmsg] = useState('');
 const [order, setorder] = useState(0);
 const [Numrating, setNumrating] = useState(0);
  
-const ItemId= useParams();
+const {ItemId}= useParams();
 // const ItemId= localStorage.getItem('token');
 const [mystar, setmystar] = useState(star5);
 
