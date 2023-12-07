@@ -87,18 +87,19 @@ function App() {
                         <Route exact path='/' element={<MainArtical/>}> </Route> 
                       
                         
-                        <Route exact path='/MajorProduct' element={<MajorProduct/>}> </Route> 
+                        <Route exact path='/MajorProduct/:productId' element={<MajorProduct/>}> </Route> 
                         <Route exact path='/MainArtical' element={<MainArtical/>}> </Route> 
                         
                         <Route element={<CPRoutes/>}>
                         <Route exact path='/AddToCart' element={<AddToCart/>}> </Route>
-                        <Route exact path='/OrderNow' element={<OrderNow/>}> </Route>
+                       
                         <Route exact path='/CustomerOrderDetails' element={<CustomerOrderDetails/>}> </Route>
                         <Route exact path='/OrderHistory' element={<OrderHistory/>}> </Route>
                         <Route exact path='/CustomerRating' element={<CustomerRating/>}> </Route>
                         <Route exact path='/ProfileUser' element={<ProfileUser/>}> </Route>
                         </Route>
-                        
+                        {/* make a change remove restriction from orderNow Customer can place an order with login  */}
+                        <Route exact path='/OrderNow' element={<OrderNow/>}> </Route>
                        
 
 

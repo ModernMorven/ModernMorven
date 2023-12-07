@@ -12,6 +12,8 @@ import Reviews from './Reviews'
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { useNavigate} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 
@@ -23,7 +25,9 @@ const [alertColor, setalertColor] = useState('');
 const [alertmsg, setalertmsg] = useState('');
 const [order, setorder] = useState(0);
 const [Numrating, setNumrating] = useState(0);
-const ItemId= localStorage.getItem('token');
+ 
+const ItemId= useParams();
+// const ItemId= localStorage.getItem('token');
 const [mystar, setmystar] = useState(star5);
 
 useEffect(() => {
@@ -278,6 +282,11 @@ setTimeout(() => {
     <Navbar/>
     {/* <Navbar/> */}
     <div className="mainbody">
+    <div class="alert alert-warning d-flex justify-content-between" role="alert">
+    <span>Sign up now and enjoy a 5% discount! Click <a href="/CustomerRegistration" class="alert-link">Signup</a> to register.</span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 
       <div className="product-main-div">
         {/* to handle picture of product */}

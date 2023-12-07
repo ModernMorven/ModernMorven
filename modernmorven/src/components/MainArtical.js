@@ -241,7 +241,7 @@ setTimeout(() => {
                 <div className="producttitle">
                   {/* maximum allow 14 characters must  */}
                   
-                <Link  to="/MajorProduct" onClick={()=>{localStorage.setItem('token',item._id)}}>
+                <Link  to={`/MajorProduct/${item._id}`} onClick={()=>{localStorage.setItem('token',item._id)}}>
                     <p>{displayString}</p> 
                     {/* <p>{item.title}</p>  */}
                     </Link>
