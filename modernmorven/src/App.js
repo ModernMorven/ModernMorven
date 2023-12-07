@@ -87,7 +87,7 @@ function App() {
                         <Route exact path='/' element={<MainArtical/>}> </Route> 
                       
                         
-                        <Route exact path='/MajorProduct/:productId' element={<MajorProduct/>}> </Route> 
+                        <Route exact path='/MajorProduct/:ItemId' element={<MajorProduct/>}> </Route> 
                         <Route exact path='/MainArtical' element={<MainArtical/>}> </Route> 
                         
                         <Route element={<CPRoutes/>}>
