@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const CryptoJS = require('crypto-js');
+const bcrypt = require('bcrypt');
 
 const port = 8000
 require("./DataBase/Connection");
@@ -41,9 +43,21 @@ app.options("*", cors(corsOptions));
 //     res.status(500).send('Internal Server Error');
 //   }
 // });
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+// AES desryption algorithm add hash algorithm
+const decryptAndHashPassword = (encryptedPassword, secretKey) => {
+  // Decrypt the password
+  const bytes = CryptoJS.AES.decrypt(encryptedPassword, secretKey);
+  const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
 
+  // Hash the decrypted password
+  const saltRounds = 10; // Adjust according to your needs
+  const hashedPassword = bcrypt.hashSync(decryptedPassword, saltRounds);
 
+  return hashedPassword;
+};
 
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 
 
@@ -58,7 +72,11 @@ app.post('/customersignup', async(req, res) => {
       res.status(404).send({message:"User already exist "})
     }
     else{
-     const response=new UserModel({_id:req.body.mail,name:req.body.name,password:req.body.passhash});
+
+      const encryptedPasswordFromClient = req.body.passhash; // Receive this from the client
+      const secretKey = 'MM*995MoDeRN#tEc';
+      const hashedPassword = decryptAndHashPassword(encryptedPasswordFromClient, secretKey);
+     const response=new UserModel({_id:req.body.mail,name:req.body.name,password:hashedPassword});
      const data= await response.save();
      if(data){
       res.status(200).send(data); // Replace this with your desired response
@@ -70,34 +88,36 @@ app.post('/customersignup', async(req, res) => {
     }
   }
   catch(error){
-    res.status(505).send({message:`Error While Fetching ${error}`});
+    res.status(500).send({message:`Error While Fetching ${error}`});
   }
 
 });
 
-app.post("/customerlogin", async(req,res)=>{
-  
-  try{
-  if(req.body._id && req.body.password){
-      let login= await UserModel.findOne({
-        _id: req.body._id,
-        password:req.body.password
-       
-  }).select('-password')
-  if(login){
-    res.send(login)
-  }
-  else{
-    res.send("No Data Found")
-  }
-  }
-}
-catch(error){
-  res.send(`MISSING FIELDS`)
-}
- 
+app.post('/customerlogin', async (req, res) => {
+  try {
+    if (req.body._id && req.body.password) {
+      const plainPasswordFromClient = req.body.password; // Receive this from the client
 
-})
+      // Fetch user from the database based on _id
+      const user = await UserModel.findById(req.body._id).select('+password');
+
+      if (user) {
+        // Compare the received plain password with the stored hashed password
+        const passwordMatches = bcrypt.compareSync(plainPasswordFromClient, user.password);
+
+        if (passwordMatches) {
+          res.status(200).send(user);
+        } else {
+          res.status(500).send('Incorrect password');
+        }
+      } else {
+        res.status(500).send('No Data Found');
+      }
+    }
+  } catch (error) {
+    res.status(404).send('MISSING FIELDS');
+  }
+});
 
 
 
@@ -469,7 +489,7 @@ app.post("/CustomerShowProfile",async(req,res)=>{
     
   }
   catch(error){
-    res.status(505).send({message:`ERROR IN API ${error}`})
+    res.status(500).send({message:`ERROR IN API ${error}`})
   }
 })
 app.post("/CustomerEditProfile",async(req,res)=>{
@@ -493,7 +513,7 @@ app.post("/CustomerEditProfile",async(req,res)=>{
       }
   }
   catch(error){
-    res.status(505).send({message:`ERROR IN API ${error}`})
+    res.status(500).send({message:`ERROR IN API ${error}`})
   }
 })
 app.post("/CMAIL/SENDOTP", async (req, res) => {
@@ -1229,6 +1249,7 @@ app.post('/api/edit/product/delete/images', async (req, res) => {
     res.status(500).send({ message: `ERROR while updating images: ${error}` });
   }
 });
+
 
 
 

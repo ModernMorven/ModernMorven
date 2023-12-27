@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import '../Filescss/Customerlogin.css'
 import mmlog from '../Images/mmlog.png';
 import { Link ,useNavigate} from 'react-router-dom';
+const CryptoJS = require('crypto-js');
 // import CustomerRegistration from './CustomerRegistration'
  function Customerlogin(props) {
   document.title=" Login Page-ModernMorven"
@@ -19,10 +20,25 @@ const [loader, setloader] = useState('off');
   const HANDLECLOGIN=async(event)=>{
     event.preventDefault();
   try{
+
+
     setloader("on");
+    const encryptPassword = (password, secretKey) => {
+      const cipherText = CryptoJS.AES.encrypt(password, secretKey).toString();
+      return cipherText;
+    };
+    
+    // AES algorithm use for encryption password 
+   
+    const secretKey = 'MM*995MoDeRN#tEc';
+    const encryptedPassword = encryptPassword(password, secretKey);
+    console.log('encryptedPassword', encryptedPassword)
+
+
+
     const result= await fetch("https://backendapi.modernmorven.com/customerlogin",{
       method:"POST",
-      body: JSON.stringify({ _id: email, password :password }),
+      body: JSON.stringify({ _id: email, password :encryptedPassword }),
       headers:{
         "Content-Type":"application/json"
       }

@@ -4,6 +4,7 @@ import '../Filescss/CustomerRegistration.css'
 import mmlog from '../Images/mmlog.png';
 import { Link ,useNavigate} from "react-router-dom";
 // import Customerlogin from './Customerlogin'
+const CryptoJS = require('crypto-js');
 
  function CustomerRegistration(props) {
   document.title=" Customer Registration Page-ModernMorven";
@@ -23,13 +24,24 @@ const handleSubmit=async(event)=>{
     event.preventDefault();
     if(passwordhash===passwordhashRetpe)
     {    
+      const encryptPassword = (passwordhash, secretKey) => {
+        const cipherText = CryptoJS.AES.encrypt(passwordhash, secretKey).toString();
+        return cipherText;
+      };
+      
+      // AES algorithm use for encryption password 
+     
+      const secretKey = 'MM*995MoDeRN#tEc';
+      const encryptedPassword = encryptPassword(passwordhash, secretKey);
+      console.log('encryptedPassword', encryptedPassword)
+
         setpasswordMatch(true);
          
           try{
             setloader("on")
             const response= await fetch("https://backendapi.modernmorven.com/customersignup",{
               method:"post",
-              body: JSON.stringify({ "mail":email,"name":name,"passhash":passwordhash}),
+              body: JSON.stringify({ "mail":email,"name":name,"passhash":encryptedPassword}),
               headers:{
                 'Content-Type':'application/json',
               }
@@ -78,6 +90,20 @@ setTimeout(() => {
 setTimeout(() => {
   seterrormessage(null);
 }, 4000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (
