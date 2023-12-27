@@ -44,26 +44,28 @@ const [loader, setloader] = useState('off');
       }
     })
     if(result.ok){
-      const data= await result.text();
+      const data= await result.json();
 
-    if(data&& data!=="No Data Found"){
+    if(data.success){
 
-      localStorage.setItem('user',data);
+      localStorage.setItem('user',data.success);
       navigate('/MainArtical');}
     
 
     else{
       console.log('first', JSON.stringify(result))
-      setresultmessage("No Data Found ")
+      setresultmessage(data.failure)
       setloader("off");
     }
   }
   else {
-    setresultmessage("Request failed with status:", result.status);
+    setresultmessage(`Request failed with status: ${result.status}`);
+    setloader("off");
   }
   }
   catch(error){
-    setresultmessage(`ERROR While LOGIN ${error}`)
+    setresultmessage(`ERROR While LOGIN ${error}`);
+    setloader("off");
   }
 
 };

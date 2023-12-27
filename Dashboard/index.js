@@ -119,16 +119,16 @@ app.post('/customerlogin', async (req, res) => {
         const passwordMatches = bcrypt.compareSync(plainPasswordFromClient, user.password);
 
         if (passwordMatches) {
-          res.send(user);
+          res.send({success:user});
         } else {
-          res.status(500).send('Incorrect password');
+          res.status(500).send({failure:'Incorrect password'});
         }
       } else {
-        res.status(500).send('No Data Found');
+        res.status(500).send({failure:'No Data Found'});
       }
     }
   } catch (error) {
-    res.status(404).send('MISSING FIELDS');
+    res.status(404).send({failure:'MISSING FIELDS'});
   }
 });
 
