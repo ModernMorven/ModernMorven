@@ -56,6 +56,13 @@ const decryptAndHashPassword = (encryptedPassword, secretKey) => {
 
   return hashedPassword;
 };
+// Forlogin user password only decrypt from this function 
+const decryptPassword = (encryptedPassword, secretKey) => {
+  // Decrypt the password
+  const bytes = CryptoJS.AES.decrypt(encryptedPassword, secretKey);
+  const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
+  return decryptedPassword;
+};
 
 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
@@ -96,7 +103,13 @@ app.post('/customersignup', async(req, res) => {
 app.post('/customerlogin', async (req, res) => {
   try {
     if (req.body._id && req.body.password) {
-      const plainPasswordFromClient = req.body.password; // Receive this from the client
+
+      const encryptedPasswordFromClient = req.body.password; // Receive this from the client
+      const secretKey = 'MM*995MoDeRN#tEc';
+      const decryptPasswordFromFunction = decryptPassword(encryptedPasswordFromClient, secretKey);
+
+
+      const plainPasswordFromClient = decryptPasswordFromFunction; // Receive this from the client
 
       // Fetch user from the database based on _id
       const user = await UserModel.findById(req.body._id).select('+password');
