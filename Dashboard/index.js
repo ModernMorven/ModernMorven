@@ -119,7 +119,7 @@ app.post('/customerlogin', async (req, res) => {
         const passwordMatches = bcrypt.compareSync(plainPasswordFromClient, user.password);
 
         if (passwordMatches) {
-          res.status(200).send(user);
+          res.send(user);
         } else {
           res.status(500).send('Incorrect password');
         }
