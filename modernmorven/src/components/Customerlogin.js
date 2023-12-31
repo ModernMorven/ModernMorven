@@ -48,7 +48,7 @@ const [loader, setloader] = useState('off');
 
     if(data.success){
 
-      localStorage.setItem('user',data.success);
+      localStorage.setItem('user',JSON.stringify(data.success));
       navigate('/MainArtical');}
     
 

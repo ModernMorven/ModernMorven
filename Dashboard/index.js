@@ -102,36 +102,62 @@ app.post('/customersignup', async(req, res) => {
 
 app.post('/customerlogin', async (req, res) => {
   try {
-    if (req.body._id && req.body.password) {
+    if (!req.body._id || !req.body.password) {
+      return res.status(400).send({ message: 'Required fields (_id, password) missing.' });
+    }
 
-      const encryptedPasswordFromClient = req.body.password; // Receive this from the client
-      const secretKey = 'MM*995MoDeRN#tEc';
-      const decryptPasswordFromFunction = decryptPassword(encryptedPasswordFromClient, secretKey);
+    const encryptedPasswordFromClient = req.body.password;
+    const secretKey = 'MM*995MoDeRN#tEc'; // Store securely, not hardcoded
 
-
-      const plainPasswordFromClient = decryptPasswordFromFunction; // Receive this from the client
-
-      // Fetch user from the database based on _id
+    try {
+      const plainPasswordFromClient = decryptPassword(encryptedPasswordFromClient, secretKey);
+      // console.log(plainPasswordFromClient)
       const user = await UserModel.findById(req.body._id).select('+password');
 
-      if (user) {
-        // Compare the received plain password with the stored hashed password
-        const passwordMatches = bcrypt.compareSync(plainPasswordFromClient, user.password);
-
-        if (passwordMatches) {
-          res.send({success:user});
-        } else {
-          res.status(500).send({failure:'Incorrect password'});
-        }
-      } else {
-        res.status(500).send({failure:'No Data Found'});
+      if (!user) {
+        return res.status(401).send({ message: 'Invalid user credentials.' });
       }
+
+      const passwordMatches = await bcrypt.compare(plainPasswordFromClient, user.password);
+
+      if (!passwordMatches) {
+        return res.status(401).send({ message: 'Invalid user credentials.' });
+      }
+
+      res.status(200).send({ success: user });
+    } catch (error) {
+      console.error(error); // Log error for debugging
+      res.status(500).send({ message: 'Internal server error.' });
     }
   } catch (error) {
-    res.status(404).send({failure:'MISSING FIELDS'});
+    console.error(error); // Log error for debugging
+    res.status(500).send({ message: 'Internal server error.' });
   }
 });
 
+// app.post("/customerlogin", async(req,res)=>{
+  
+//   try{
+//   if(req.body._id && req.body.password){
+//       let login= await UserModel.findOne({
+//         _id: req.body._id,
+//         password:req.body.password
+       
+//   }).select('-password')
+//   if(login){
+//     res.send(login)
+//   }
+//   else{
+//     res.send("No Data Found")
+//   }
+//   }
+// }
+// catch(error){
+//   res.send(`MISSING FIELDS`)
+// }
+ 
+
+// })
 
 
 const Adminlogin=require("./models/Adminlogin")
